@@ -1,0 +1,389 @@
+title: "Nach Hause batzen"
+introduction: |
+  Alle Charaktere sind echt und nichts ist gelogen. Trotz fehlender Quellenangaben kann man hier alles und nichts glauben.
+  Doch worum geht es hier überhaupt? Um einen Helden?
+  Wenn ja, dann ist es ein Held der ungern Hosen trägt und  gerne Bier trinkt. Manchmal zu viel... wie in dieser Geschichte.
+  Langsam kommst du zu dir... Dein Kopf brummt und dein Gesicht fuehlt sich an als waere gerade ein Eichen-Prozessionsspinner drueber hinweg prozessiert.
+
+startplace: laboe.naziroom
+startinventory: [feuerzeug, kippen]
+places: 
+  - !Place
+    name: laboe.naziroom
+    description: |
+      Du befindest dich in einem halbdunklen Raum. Durch einen Spalt zwischen zwei Hakenkreuzflaggen scheint etwas Licht hinein.. Es scheint sich ein Fenster dahinter zu verbergen.
+      Du hast auf einer Art Bett geschlafen und hast das Gefuehl, dass du nach Hause gehen solltest.
+  - !Place
+    name: laboe.strand
+    description: |
+      Der Laboer Strand! Voll mit Leuten die ich nicht kenne. Links steht eine Gruppe Skinheads mit einheitlichen Westen an. Sie scheinen mich noch nicht bemerkt zu haben.
+      Ich stehe direkt vor dem halboffenen Fenster.
+  - !Place
+    name: kneipenterror.dunkelkammer
+    description: |
+      Ich kann mich nicht orientieren. Den Sack habe ich nicht mehr aufm Kopf aber hier ist es komplett Dunkel drin.
+  - !Place
+    name: kneipenterror.vorratskeller
+    description: |
+      Jetzt wo es hell ist sehe ich, dass ich mich in einem Vorratskeller befinde. 
+      In der Ecke steht ein Regal mit Lebensmitteln. Davor liegt ein alter Obstkorb.
+      Eine große Tür führt nach draußen.
+
+objects:
+  #laboe
+  - !Item
+    name: feuerzeug
+    belongs_to: inventory
+    description: |
+      Es funktioniert noch!
+    active: True
+  - !Item
+    name: kippen
+    belongs_to: inventory
+    description: |
+      Lecker Kippchen!
+  - !Item
+    name: bett
+    belongs_to: laboe.naziroom
+    description: |
+      Ein Bett kann man das eigentlich nicht nennen. Es ist eher ein Brett auf dem halbherzig ein kaputtes Laken gespannt wurde. 
+    active: True
+  - !Item
+    name: brett
+    belongs_to: laboe.naziroom
+    description: |
+      Das muss mir vom Kopf gefallen sein.
+    active: False
+  - !Item
+    name: laken
+    belongs_to: laboe.naziroom
+    description: |
+      Vom Geruch und den Löchern her wahrscheinlich "Made in Switzerland"
+    active: False
+  - !Item
+    name: hakenkreuzflaggen
+    active: True
+    belongs_to: laboe.naziroom
+    description: |
+      Wo zum Teufel bin ich hier gelandet? Die Flaggen hängen vor einem Fenster und riechen nach Rauch. 
+      Ein Blick durch den Spalt zwischen den Flaggen verrät: Das Meer ist nicht weit.
+  - !Item
+    name: whiskyflasche
+    active: False
+    belongs_to: laboe.naziroom
+    description: |
+      Eine Halbvolle Whiskyflasche.
+  - !Item
+    name: molotovcocktail
+    active: False
+    belongs_to: None
+    description: |
+      Anzünden und werfen. Wie in GTA.
+  - !Item
+    name: fenster
+    active: False
+    belongs_to: laboe.naziroom
+    description: |
+      Jetzt wo nichts mehr im Weg steht bin ich mir sicher, dass ich in Laboe bin.
+
+  #kneipenterror
+  - !Item
+    name: obstkorb
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Es sind lediglich ein paar Bananenschalen übrig.
+  - !Item
+    name: regal
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Mal sehen... hier gibt es Ketchup, einen Sack Kartoffeln, Zwiebeln und ein Teeei.
+  - !Item
+    name: bananenschale
+    active: False
+    belongs_to: None
+    description: |
+      Rutschig und Vegan. Eine gute Kombination.
+  - !Item
+    name: banane
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Legga.
+  - !Item
+    name: ketchup
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Sogar der gute Heinz.
+  - !Item
+    name: zwiebeln
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Zum heulen.
+  - !Item
+    name: kartoffeln
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Fuenf Kartoffeln..
+  - !Item
+    name: tür
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Eine verschlossene Tür. Unten ist ein Spalt durch den man sehen kann.
+      Dort erkennst du, dass jemand mit Fokuhila und 90er Bart Wache steht.
+  - !Item
+    name: teeei
+    active: True
+    belongs_to: kneipenterror.vorratskeller
+    description: |
+      Mehr Aroma als mit Teebeutel!
+
+actions:
+  ### PLACE 1 ############################
+  ########################################
+
+  #Aufs Bett setzen => es geht dabei kaputt
+  - !Action
+    operation: benutze
+    target: bett
+    conditions: 
+      - obj: bett
+        check: isActive
+      - place: laboe.naziroom
+    text: |
+      Du setzt dich aufs Bett. Dabei zerbricht das Brett. Das Brett und Laken liegen jetzt nebeneinander auf dem Boden.
+    changes:
+      - obj: bett
+        change: destroy
+      - obj: brett
+        change: activate
+      - obj: laken
+        change: activate
+
+  #Flaggen nehmen. Danach wird die Whiskyflasche entdeckt
+  - !Action
+    operation: nehme
+    target: brett
+    text: |
+      Jetzt bin ich stolzer besitzer eines Bretts.
+
+  #Flaggen nehmen. Danach wird die Whiskyflasche entdeckt
+  - !Action
+    operation: nehme
+    target: hakenkreuzflaggen
+    text: |
+      Keine Ahnung wozu ich die Dinger je benutzen werde... Aber na gut. Hinter den "Vorhängen" liegt eine Whiskyflasche auf der Fensterbank.
+    changes:
+      - obj: whiskyflasche
+        change: activate
+      - obj: fenster
+        change: activate
+
+  #Whiskyflasche ins Inventar nehmen
+  - !Action
+    operation: nehme
+    target: whiskyflasche
+    text: |
+      Whisky kann man immer gebrauchen!
+
+  #Molotov Cocktail basteln
+  - !Action
+    operation: benutze
+    target: whiskyflasche
+    target2: hakenkreuzflaggen
+    conditions: 
+      - obj: whiskyflasche
+        check: isInInventory
+      - obj: hakenkreuzflaggen
+        check: isInInventory
+    text: |
+      Ich habe ein Stück der Flagge abgerissen und in die Flasche gestopft. Ein Stück hängt noch aus der Flasche raus!
+    changes:
+      - obj: molotovcocktail
+        change: toInventory
+      - obj: molotovcocktail
+        change: activate
+      - obj: whiskyflasche
+        change: destroy
+      - obj: hakenkreuzflaggen
+        change: destroy
+  #Fenster versuchen aufzumachen
+  - !Action
+    operation: benutze
+    target: fenster
+    conditions:
+      - obj: fenster
+        check: isActive
+    text: |
+      Es ist verschlossen. Meine Kraft reicht nicht aus um es zu öffnen.
+
+  #Fenster aufhebeln
+  - !Action
+    operation: benutze
+    target: fenster
+    target2: brett
+    conditions:
+      - obj: brett
+        check: isInInventory
+        obj: fenster
+        check: isActive
+    text: |
+      Ich setze das Brett am Fenster an und... 
+      ......
+      ......
+      Schaffe es ganz knapp das Fenster aufzuhebeln, das Brett ist dabei zerbrochen. 
+      Laboe ich komme!
+    changes:
+      - obj: brett
+        change: destroy
+
+  #Aus dem Fenster klettern
+  - !Action
+    operation: gehe
+    target: fenster
+    conditions:
+      - obj: brett
+        check: isDestroyed
+      - place: laboe.naziroom
+    text: |
+      Ich steige aus dem Fenster und stehe in Laboe am Strand
+    changes:
+      - place: laboe.strand
+
+  ### PLACE 2 - Laboer Strand ############
+  ########################################
+  - !Action
+    operation: gehe
+    target: links
+    conditions:
+      - obj: molotovcocktail
+        check: isNotInInventory
+    text: |
+      Ich möchte mich lieber nicht unbewaffnet der Gruppe nähern. Ich brauche ein Ablenkungsmannöver.
+
+  - !Action
+    operation: gehe
+    target: fenster
+    conditions:
+      - place: laboe.strand
+    text: |
+      Ich steige wieder in den Raum hinein.
+    changes:
+      - place: laboe.naziroom
+
+
+  - !Action
+    operation: benutze
+    target: molotovcocktail
+    target2: feuerzeug
+    conditions:
+      - obj: molotovcocktail
+        check: isInInventory
+      - obj: feuerzeug
+        check: isInInventory
+      - place: laboe.strand
+    text: |
+      Scheiss auf Ablenkungsmannöver. Durch jahrelange Flunkyballerfahrung gelingt es mir mitten in die Gruppe zu werfen. 
+      Hätte ich jetzt ein volles Bier würd ich bis die alle wieder stehen locker austrinken können!
+      Beim vorbeigehen erkenne ich auf den brennenden Kutten das Emblem der Laboer Blue Brothers. Ich entgegne Ihnen euphorisch:
+      "Jetzt ist Laboe fällig".
+      
+      Nach weiteren 200m packt mich eine Gruppe von hinten und stülpt mir einen Sack über den Kopf. 
+    changes:
+      - obj: molotovcocktail
+        change: destroy
+      - place: kneipenterror.dunkelkammer
+  ### PLACE 3 - Kneipen Terror ##########################
+  #######################################################
+  - !Action
+    operation: benutze
+    target: feuerzeug
+    conditions:
+      - place: kneipenterror.dunkelkammer
+    text: |
+      Es werde Licht!
+    changes:
+      - place: kneipenterror.vorratskeller
+  #Gegenstände nehmen
+  - !Action
+    operation: nehme
+    target: zwiebeln
+    text: |
+      Ich nehme mir ein paar Zwiebeln.
+  - !Action
+    operation: nehme
+    target: kartoffeln
+    text: |
+      Ich nehme mir 5 Kartoffeln.
+  - !Action
+    operation: nehme
+    target: ketchup
+    text: |
+      Ich habe zwar keine Nudeln.. aber vielleicht kann man Ketchup ja auch für was anderes gebrauchen.
+  - !Action
+    operation: nehme
+    target: banane
+    text: |
+      Ich packe die matschige Banane in meine Tasche.
+  ## Esse Banane
+  - !Action
+    operation: benutze
+    target: banane
+    conditions: 
+      - obj: banane
+        check: isInInventory
+    text: |
+      Ich esse die Banane mit 2 Bissen. Die Schale behalte ich erstma.
+    changes:
+      - obj: bananenschale
+        change: toInventory
+      - obj: bananenschale
+        change: activate
+      - obj: banane
+        change: destroy
+  - !Action
+    operation: benutze
+    target: bananenschale
+    target2: tür
+    conditions:
+      - obj: bananenschale
+        check: isInInventory
+      - place: kneipenterror.vorratskeller
+    text: Du platzierst die Bananenschale vor der verschlossenen Tür.
+    changes:
+      - obj: bananenschale
+        change: putToPlace
+        param: kneipenterror.vorratskeller
+      - obj: bananenschale
+        change: deactivate
+  - !Action
+    operation: benutze
+    target: ketchup
+    target2: tür
+    conditions:
+      - obj: bananenschale
+        check: isAt
+        param: kneipenterror.vorratskeller
+    text: |
+      Du schüttest den Ketchup unter dem Türspalt hindurch, so dass er in den Flur fließt und gehst an die andere Ecke des Raumes.
+      Dass zieht die Aufmerksamkeit der Wache auf dich. In langsamen Schritten kommt der wankende Durchschnitts-Kieler auf die Tür zu.
+      "Hallo ist alles Ok???"
+      Du stellst dich tot.
+      "Halloooo?? Scheiße der Blutet."
+      Die Wache schließt die Tür auf und stürmt in die Zelle rutscht dabei auf der Bananenschale aus, stößt sich an der Heinzketchupflasche den Kopf und liegt bewusstlos auf dem Boden.
+    changes: 
+      - obj: ketchup
+        change: putToPlace
+        param: kneipenterror.vorratskeller
+      - obj: ketchup
+        change: destroy
+
+
+
+
+

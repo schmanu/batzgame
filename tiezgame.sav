@@ -1,0 +1,62 @@
+currentplace: !Place {description: 'Der Laboer Strand! Voll mit Leuten die ich nicht
+    kenne. Links steht eine Gruppe Skinheads mit einheitlichen Westen an. Sie scheinen
+    mich noch nicht bemerkt zu haben.
+
+    Ich stehe direkt vor dem halboffenen Fenster.
+
+    ', name: laboe.strand}
+inventory: [feuerzeug, molotovcocktail]
+objects:
+  bananenschale: !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: 'Rutschig
+      und Vegan. Eine gute Kombination.
+
+      ', name: bananenschale}
+  bett: !Item {active: false, belongs_to: null, description: "Ein Bett kann man das\
+      \ eigentlich nicht nennen. Es ist eher ein Brett auf dem halbherzig ein kaputtes\
+      \ Laken gespannt wurde. \n", name: bett}
+  brett: !Item {active: false, belongs_to: null, description: 'Das muss mir vom Kopf
+      gefallen sein.
+
+      ', name: brett}
+  fenster: !Item {active: true, belongs_to: laboe.naziroom, description: 'Jetzt wo
+      nichts mehr im Weg steht bin ich mir sicher, dass ich in Laboe bin.
+
+      ', name: fenster}
+  feuerzeug: !Item {active: true, belongs_to: inventory, description: 'Es funktioniert
+      noch!
+
+      ', name: feuerzeug}
+  hakenkreuzflaggen: !Item {active: false, belongs_to: null, description: "Wo zum\
+      \ Teufel bin ich hier gelandet? Die Flaggen h\xE4ngen vor einem Fenster und\
+      \ riechen nach Rauch. \nEin Blick durch den Spalt zwischen den Flaggen verr\xE4\
+      t: Das Meer ist nicht weit.\n", name: hakenkreuzflaggen}
+  kartoffeln: !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: 'Fuenf
+      Kartoffeln..
+
+      ', name: kartoffeln}
+  ketchup: !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: 'Sogar
+      der gute Heinz.
+
+      ', name: ketchup}
+  laken: !Item {active: true, belongs_to: laboe.naziroom, description: "Vom Geruch\
+      \ und den L\xF6chern her wahrscheinlich \"Made in Switzerland\"\n", name: laken}
+  molotovcocktail: !Item {active: true, belongs_to: inventory, description: "Anz\xFC\
+      nden und werfen. Wie in GTA.\n", name: molotovcocktail}
+  obstkorb: !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: "Es\
+      \ sind lediglich ein paar Bananenschalen \xFCbrig.\n", name: obstkorb}
+  regal: !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: 'Mal
+      sehen... hier gibt es Ketchup und einen Sack Kartoffeln. Ahh und Zwiebeln.
+
+      ', name: regal}
+  "t\xFCr": !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: "Eine\
+      \ verschlossene T\xFCr. Unten ist ein Spalt durch den man sehen kann.\nDort\
+      \ erkennst du, dass jemand mit Fokuhila und 90er Bart Wache steht.\n", name: "t\xFC\
+      r"}
+  whiskyflasche: !Item {active: false, belongs_to: null, description: 'Eine Halbvolle
+      Whiskyflasche.
+
+      ', name: whiskyflasche}
+  zwiebeln: !Item {active: true, belongs_to: kneipenterror.vorratskeller, description: 'Zum
+      heulen.
+
+      ', name: zwiebeln}

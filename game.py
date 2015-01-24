@@ -61,8 +61,6 @@ class Game(object):
       else:
         Game.addOrAppendToDict(self.actions, action.operation, action)
 
-s
-
   def changePlace(self, where):
     State.currentplace = where
     Game.animatedprint(where.description)
@@ -178,6 +176,14 @@ s
       sys.stdout.write(c)
       sys.stdout.flush()
       time.sleep(0.001)
+  @staticmethod
+  def addOrAppendToDict(d, key, newvalue):
+    if key in d:
+      oldvalue = d[key]
+      oldvalue.append(newvalue)
+      d[key] = oldvalue
+    else:
+      d[key] = list([newvalue])
 
 
 class State(object):

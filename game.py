@@ -1,7 +1,14 @@
 import yaml, time, sys
 
 class Game(object):
-  """docstring for Game"""
+  """
+      This is the main class. A Game instance holds all data needed to play the game.
+      Therefore the Game-YAML is parsed and all the Items / Places / Actions get initialized.
+
+      This class also executes the operations.
+
+      To write a own game a own yaml-file has to be configured.
+  """
 
   def __init__(self, loadfile = None):
     super(Game, self).__init__()
@@ -54,14 +61,7 @@ class Game(object):
       else:
         Game.addOrAppendToDict(self.actions, action.operation, action)
 
-  @staticmethod
-  def addOrAppendToDict(d, key, newvalue):
-    if key in d:
-      oldvalue = d[key]
-      oldvalue.append(newvalue)
-      d[key] = oldvalue
-    else:
-      d[key] = list([newvalue])
+s
 
   def changePlace(self, where):
     State.currentplace = where

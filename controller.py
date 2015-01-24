@@ -5,7 +5,11 @@ from place import Place
 from action import Action
 
 class Controller(cmd.Cmd):
-  """docstring for Controller"""
+  """
+      This class manages all shell inputs and directs them to the game object.
+      The python Cmd class is utilized for this purpose.
+      This class should only be changed in order to rename / add / remove command line prompts. 
+  """
 
   intro = "Willkommen zu 'Nach Hause Batzen'  Druecke ? fuer eine Anleitung fuer das Spiel!"
   prompt = " (Batz) "

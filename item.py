@@ -1,7 +1,16 @@
 import yaml
 from game import State
 class Item(yaml.YAMLObject):
-  """docstring for Item"""
+  """
+      This class is used for items. Each item is an instance of this class.
+      It knows its state and current position / belonging in the game.
+
+      An Item is usually identified by its name. 
+      In order to use the same name for several items an identifier has been added.
+
+      You should still be advised to be careful when giving the same name to several items: Two Items with the same name should never be able to 
+      be in the room or in the inventory at the same time. As the user should not be annoyed by identifiers like "door13".
+  """
   yaml_tag = u'!Item'
 
   def __init__(self, name, description, active, belongs_to, identifier=None):

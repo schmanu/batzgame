@@ -1,7 +1,10 @@
 import yaml
 
 class Place(yaml.YAMLObject):
-  """docstring for Place"""
+  """"
+  		Class used for Places. Each place/setting in the game is an instance of this class.
+  		Currently no magic happens here.
+  """
   yaml_tag = u'!Place'
 
   def __init__(self, name, description, objects):

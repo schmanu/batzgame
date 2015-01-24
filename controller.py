@@ -6,6 +6,9 @@ from action import Action
 
 class Controller(cmd.Cmd):
   """docstring for Controller"""
+
+  intro = "Willkommen zu 'Nach Hause Batzen'  Druecke ? fuer eine Anleitung fuer das Spiel!"
+  prompt = " (Batz) "
   file = None
 
   #Basic commands
@@ -40,11 +43,9 @@ class Controller(cmd.Cmd):
 
   def do_inventar(self, arg):
     self.game.checkInventory()
-    
-  def do_mache_bratkartoffeln(self, arg):
-    'Bereite wenn moeglich Bratkartoffeln zu! : MACHE BRATKARTOFFELN'
-    print("Ich habe gerade keinen Hunger.")
 
+  def do_daumenraus(self, arg):
+    self.game.thumbup()
   def precmd(self, line):
     if not hasattr(self, 'game'):
       if line != "newgame" and line != "?" and not line.startswith("lade"):

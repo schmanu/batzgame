@@ -4,12 +4,14 @@ class Item(yaml.YAMLObject):
   """docstring for Item"""
   yaml_tag = u'!Item'
 
-  def __init__(self, name, description, active, belongs_to):
+  def __init__(self, name, description, active, belongs_to, identifier=None):
     super(Item, self).__init__()
     self.name = name
     self.description = description
     self.belongs_to = belongs_to
     self.active = active
+    self.identifier = name
+
 
 
   def __str__(self):
@@ -17,6 +19,12 @@ class Item(yaml.YAMLObject):
 
   def __repr__(self):
     return self.name
+
+  def getID(self):
+    if hasattr(self, 'identifier'):
+      return self.identifier
+    else:
+      return 0
 
   def examine(self):
     return self.description
@@ -39,6 +47,9 @@ class Item(yaml.YAMLObject):
   def isActive(self):
     return self.active
 
+  def isNotActive(self):
+    return not self.active
+
   def isNotInInventory(self):
     return not (self.belongs_to == 'inventory')
 
@@ -55,4 +66,8 @@ class Item(yaml.YAMLObject):
     
   def toInventory(self):
     self.belongs_to = 'inventory'
+    self.active = True
     State.inventory.append(self.name)
+  def copyFrom(self, o):
+    self.active = o.active
+    self.belongs_to = o.belongs_to

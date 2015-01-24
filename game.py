@@ -7,7 +7,11 @@ class Game(object):
     super(Game, self).__init__()
     stream = open("batzgame.yaml", 'r')
     gamedata = yaml.load(stream)
-    self.objects = dict([ (o.name, o) for o in gamedata['objects'] ])
+    self.objects = dict()
+    #allow multiple names
+    for o in gamedata['objects']:
+      Game.addOrAppendToDict(self.objects, o.name, o)
+
     self.title = gamedata['title']
     self.introduction = gamedata['introduction']
     self.places = dict([ (p.name , p) for p in gamedata['places'] ])
@@ -25,9 +29,15 @@ class Game(object):
   def loadGame(self, loadfile):
     stream = open(loadfile+".sav", 'r')
     gamedata = yaml.load(stream)
-    self.objects = gamedata['objects']
+    #Itemsveränderungen übernehmen
+    for o_name in gamedata['objects']:
+      for o in gamedata['objects'][o_name]:
+        for current_obj in self.objects[o_name]:
+          if current_obj.getID() == o.getID():
+            current_obj.copyFrom(o)
+
     State.inventory = gamedata['inventory']
-    self.changePlace(gamedata['currentplace'])
+    self.changePlace(self.places[gamedata['currentplace'].name])
 
   def initNewGame(self):
     Game.animatedprint(self.introduction)
@@ -39,19 +49,19 @@ class Game(object):
       Game.addOrAppendToDict(self.actions, action.operation + action.target + ' ' + action.target2, action)
       Game.addOrAppendToDict(self.actions, action.operation + action.target2 + ' ' + action.target, action)
     else:
-      Game.addOrAppendToDict(self.actions, action.operation + action.target, action)
+      if hasattr(action, 'target'):
+        Game.addOrAppendToDict(self.actions, action.operation + action.target, action)
+      else:
+        Game.addOrAppendToDict(self.actions, action.operation, action)
 
   @staticmethod
   def addOrAppendToDict(d, key, newvalue):
     if key in d:
       oldvalue = d[key]
-      if isinstance(oldvalue, list):
-        oldvalue.append(newvalue)
-        d[key] = oldvalue
-      else:
-        d[key] = list([oldvalue, newvalue])
+      oldvalue.append(newvalue)
+      d[key] = oldvalue
     else:
-      d[key] = newvalue
+      d[key] = list([newvalue])
 
   def changePlace(self, where):
     State.currentplace = where
@@ -59,8 +69,10 @@ class Game(object):
 
   def examine(self, what):
     if what in self.objects:
-        if self.objects[what].isActive():
-          Game.animatedprint(self.objects[what].description)
+      items = self.objects[what]
+      for item in items:
+        if item.isInInventory() or item.isAt(State.currentplace.name):
+          Game.animatedprint(item.description)
           return
     Game.animatedprint("Ich kann "+what+" nicht finden.\n")
 
@@ -70,16 +82,19 @@ class Game(object):
 
   def take(self, what):
     if what in self.objects:
-      take_obj = self.objects[what]
-      if take_obj.isActive() and take_obj.isNotInInventory() and take_obj.belongs_to == State.currentplace.name:
-        if self.executeOperation(what, "nehme"):
-          take_obj.toInventory()
-          return
+      for take_obj in self.objects[what]:
+        if take_obj.isActive() and take_obj.isNotInInventory() and take_obj.isAt(State.currentplace.name):
+          if self.executeOperation(what, "nehme"):
+            take_obj.toInventory()
+            return
     print("Das kann ich nicht tun.")
 
   def go(self, where):
     if not self.executeOperation(where, "gehe"):
       print("Das kann ich nicht tun")
+  def thumbup(self):
+      if not self.executeOperation(None, "daumenraus"):
+        print("Ich halte den Daumen raus... nichts geschieht.")
   def checkInventory(self):
     for item in State.inventory:
       print(item)
@@ -88,26 +103,34 @@ class Game(object):
     print(State.currentplace.description)
 
   def executeOperation(self, what, operation):
-    if operation+what in self.actions:
-      actions = self.actions[operation+what]
-      if not isinstance(actions, list):
-        actions = list([actions])
+    if what:
+      actioncode = operation+what
+    else:
+      actioncode = operation
+    if actioncode in self.actions:
+      actions = self.actions[actioncode]
       for action in actions:
         conditions_met = True
         if hasattr(action, 'conditions'):
           for condition in action.conditions:
             if 'obj' in condition:
-              condition_object = self.objects[condition['obj']]
-              checker = getattr(condition_object, condition['check'])
-              if 'param' in condition:
-                param = condition['param']
-                if not checker(param):
-                  conditions_met = False
-                  break
+              obj_name = condition['obj']
+              if 'id' in condition:
+                obj_id = condition['id']
               else:
-                if not checker():
-                  conditions_met = False
-                  break
+                obj_id = 0  
+              for condition_object in self.objects[obj_name]:
+                if condition_object.getID() == obj_id:
+                  checker = getattr(condition_object, condition['check'])
+                  if 'param' in condition:
+                    param = condition['param']
+                    if not checker(param):
+                      conditions_met = False
+                      break
+                  else:
+                    if not checker():
+                      conditions_met = False
+                      break
             else:
               condition_place = condition['place']
               if State.currentplace.name != condition_place:
@@ -118,15 +141,21 @@ class Game(object):
           if hasattr(action, 'changes'):
             for change in action.changes:
               if 'obj' in change:
-                change_object = self.objects[change['obj']]
-                apply_change = getattr(change_object, change['change'])
-                param = None
-                if 'param' in change:
-                  param = change['param']
-                if param:
-                  apply_change(param)
+                obj_name = change['obj']
+                if 'id' in change:
+                  obj_id = change['id']
                 else:
-                  apply_change()
+                  obj_id = 0
+                for change_object in self.objects[obj_name]:
+                  if change_object.getID() == obj_id:
+                    apply_change = getattr(change_object, change['change'])
+                    param = None
+                    if 'param' in change:
+                      param = change['param']
+                    if param:
+                      apply_change(param)
+                    else:
+                      apply_change()
               else:
                 change_place = self.places[change['place']]
                 self.changePlace(change_place)

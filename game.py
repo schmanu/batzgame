@@ -69,7 +69,7 @@ class Game(object):
     if what in self.objects:
       items = self.objects[what]
       for item in items:
-        if item.isInInventory() or item.isAt(State.currentplace.name):
+        if item.isActive() and (item.isInInventory() or item.isAt(State.currentplace.name)):
           Game.animatedprint(item.description)
           return
     Game.animatedprint("Ich kann "+what+" nicht finden.\n")

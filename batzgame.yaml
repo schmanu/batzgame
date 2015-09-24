@@ -81,6 +81,7 @@ objects:
     belongs_to: inventory
     description: |
       Lecker Kippchen!
+    active: True
   - !Item
     name: bett
     belongs_to: laboe.naziroom
@@ -565,6 +566,8 @@ actions:
         param: kneipenterror.vorratskeller
       - obj: ketchup
         change: destroy
+      - obj: wache
+        change: activate
 
   - !Action
     operation: gehe

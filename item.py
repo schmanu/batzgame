@@ -53,6 +53,9 @@ class Item(yaml.YAMLObject):
   def isDestroyed(self):
     return self.belongs_to == None and not self.active 
 
+  def isNotDestroyed(self):
+    return not self.isDestroyed();
+
   def isActive(self):
     return self.active
 

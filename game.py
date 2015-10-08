@@ -135,7 +135,7 @@ class Game(object):
                 conditions_met = False
 
         if(conditions_met):
-          print(action.text)
+          Game.animatedprint(action.text)
           if hasattr(action, 'changes'):
             for change in action.changes:
               if 'obj' in change:
@@ -175,7 +175,7 @@ class Game(object):
     for c in string:
       sys.stdout.write(c)
       sys.stdout.flush()
-      time.sleep(0.001)
+      time.sleep(0.002)
   @staticmethod
   def addOrAppendToDict(d, key, newvalue):
     if key in d:

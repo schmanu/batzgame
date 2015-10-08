@@ -11,13 +11,21 @@ places:
   - !Place
     name: laboe.naziroom
     description: |
-      Du befindest dich in einem halbdunklen Raum. Durch einen Spalt zwischen zwei Hakenkreuzflaggen scheint etwas Licht hinein.. Es scheint sich ein Fenster dahinter zu verbergen.
+      Du befindest dich in einem halbdunklen Raum. Durch einen Spalt über einer Hakenkreuzflagge scheint etwas Licht hinein.. Es scheint sich ein Fenster dahinter zu verbergen.
       Du hast auf einer Art Bett geschlafen und hast das Gefuehl, dass du nach Hause gehen solltest.
   - !Place
     name: laboe.strand
     description: |
-      Der Laboer Strand! Voll mit Leuten die ich nicht kenne. Links steht eine Gruppe Skinheads mit einheitlichen Westen an. Sie scheinen mich noch nicht bemerkt zu haben.
-      Ich stehe direkt vor dem halboffenen Fenster.
+      Ich stehe jetzt direkt vor dem halboffenen Fenster. 
+      Vor mir laden mindestens zwei Kilometer feinsandiger Laboer Strand zum Entspannen und Erholen ein.
+      Er ist bevölkert von einer Horde salzverkrusteter Strandkörbe die einen Durchschnittsabstand von 1,83m strikt zueinander einhalten.
+      Links von mir steht eine Gruppe Skinheads mit einheitlichen Westen an.
+  - !Place 
+    name: laboe.strand2
+    description: |
+      Ich befinde mich mitten auf dem Laboer Badestrand. Neben mir steht eine Gruppe klischeehafter Touristen mit einer großen Kühlbox die ratlos umher sehen.
+      Im Strandkorb vor mir sitzt Dirk Rackow und genießt den Augenblick...
+      Zu seinen Füßen baut ein holländisches Kind eine Sandburg.
   - !Place
     name: kneipenterror.dunkelkammer
     description: |
@@ -64,9 +72,7 @@ places:
   - !Place
     name: fahrt.kielpb
     description: |
-      Du sitzt alleine auf der Rückbank. Auf dem Sitz neben dir liegt eine Handtasche auf einem Trolli mit nur 3 Rädern. 
-      Der Fahrer heißt Robert und hat dich noch immernicht begrüßt. 
-      Seine Beifahrerin, die seine Verlobte ist heißt Josefine. 
+      Created by Puk0000r und Schmanu.
 
 objects:
   #laboe
@@ -101,12 +107,11 @@ objects:
       Vom Geruch und den Löchern her wahrscheinlich "Made in Switzerland"
     active: False
   - !Item
-    name: hakenkreuzflaggen
+    name: hakenkreuzflagge
     active: True
     belongs_to: laboe.naziroom
     description: |
-      Wo zum Teufel bin ich hier gelandet? Die Flaggen hängen vor einem Fenster und riechen nach Rauch. 
-      Ein Blick durch den Spalt zwischen den Flaggen verrät: Das Meer ist nicht weit.
+      Wo zum Teufel bin ich hier gelandet? Die Flagge hängt vor einem Fenster und riecht nach Rauch. 
   - !Item
     name: whiskyflasche
     active: False
@@ -125,6 +130,38 @@ objects:
     belongs_to: laboe.naziroom
     description: |
       Jetzt wo nichts mehr im Weg steht bin ich mir sicher, dass ich in Laboe bin.
+
+  #strand
+  - !Item
+    name: touristen
+    active: True
+    belongs_to: laboe.strand2
+    description: |
+      Ich höre zu wie die drei in eine Diskussion vertieft sind:
+      "Mensch Sören.. Ich hab an alles gedacht.. das Bier is im Kühler. Ich schlepp hier das Teil bis hier hin und so.. Und du vergisst die Hälfte."
+      - "Ja wirklich ey. Alles ham wa da. Karten, Bier, Strand, Meer, Bock, aber der Sand is so heiß kannste dich ohne Decke ganich mit reinsetzen, nej?"
+      - "Jungs.. Hebbert, Hansen es tut mir ja auch viel leid und so nej. Aber das war nun auch echt kein Absicht.. Was mache wa nen nu?"
+  - !Item
+    name: kind
+    active: True
+    belongs_to: laboe.strand2
+    description: |
+      Dummes, kleines, nerviges, spielendes, holländisches Kind... Lässt mich bestimmt auch nich mitspielen... Sandburg.. Typisch.
+  - !Item
+    name: dirk
+    active: True
+    belongs_to: laboe.strand2
+    description: |
+      "Mensch Lobas du sagst ja garnichts... Wie gehts dir denn nun. Ich hätte sonst auch ne spannende Geschichte über die letzte Wennigstedter Windsurf Competition auf Sylt."
+      Ich machs wie seine Profilbilder: Kein Kommentar.
+      "Naja.. is auch ganz schön heiß heute.. Ich verbrenne in der Sonne.. würd ja lieber noch was brutzeln"
+      Ich denke ich sollte Dirk ganz eigennützig gegen die Sonne schützen.
+    - !Item
+    name: strandkorb
+    active: True
+    belongs_to: laboe.strand2
+    description: |
+      Unter dem Pommes Schranke farbenen Strandkorb
 
   #kneipenterror
   - !Item
@@ -305,23 +342,6 @@ objects:
     description: |
       Achtung stachlig. Etwas blut von mir klebt noch dran.
 
-  ######## BRIDGE: Kiel -> Paderborn #####
-  ########################################
-
-  - !Item
-    name: trolli
-    active: True
-    belongs_to: fahrt.kielpb
-    description: |
-      Ein lachsfabender Trolli dem das linke vorderne Rad bereits fehlt. Das Rad diagonal dazu scheint auch schon locker zu sein.
-  - !Item
-    name: handtasche 
-    active: True
-    belongs_to: fahrt.kielpb
-    description: |
-      Aus braunen Kunstleder. Ein Schild mit der Aufschrift "Made in Taiwan" guckt raus und sie ist halb geöffnet.
-      Du erkennst ein paar Gegenstände die oben liegen: Ein Micky-Maus Kugelschreiber, Nagellack 
-
 actions:
   ### PLACE 1 ############################
   ########################################
@@ -344,19 +364,26 @@ actions:
       - obj: laken
         change: activate
 
-  #Flaggen nehmen. Danach wird die Whiskyflasche entdeckt
+  #Brett nehmen.
   - !Action
     operation: nehme
     target: brett
     text: |
-      Jetzt bin ich stolzer besitzer eines Bretts.
+      Jetzt bin ich stolzer Besitzer eines Bretts.
+
+  #Laken nehmen.
+  - !Action
+    operation: nehme
+    target: laken
+    text: |
+      Etwas feucht und löchrig.. Gefällt mir irgendwie.
 
   #Flaggen nehmen. Danach wird die Whiskyflasche entdeckt
   - !Action
     operation: nehme
-    target: hakenkreuzflaggen
+    target: hakenkreuzflagge
     text: |
-      Keine Ahnung wozu ich die Dinger je benutzen werde... Aber na gut. Hinter den "Vorhängen" liegt eine Whiskyflasche auf der Fensterbank.
+      Keine Ahnung wozu ich die je benutzen werde... Aber na gut. Hinter den "Vorhängen" liegt eine Whiskyflasche auf der Fensterbank.
     changes:
       - obj: whiskyflasche
         change: activate
@@ -374,11 +401,11 @@ actions:
   - !Action
     operation: benutze
     target: whiskyflasche
-    target2: hakenkreuzflaggen
+    target2: hakenkreuzflagge
     conditions: 
       - obj: whiskyflasche
         check: isInInventory
-      - obj: hakenkreuzflaggen
+      - obj: hakenkreuzflagge
         check: isInInventory
     text: |
       Ich habe ein Stück der Flagge abgerissen und in die Flasche gestopft. Ein Stück hängt noch aus der Flasche raus!
@@ -389,8 +416,22 @@ actions:
         change: activate
       - obj: whiskyflasche
         change: destroy
-      - obj: hakenkreuzflaggen
+      - obj: hakenkreuzflagge
         change: destroy
+
+  #Molotov mit Laken geht nich
+  - !Action
+    operation: benutze
+    target: whiskyflasche
+    target2: laken
+    conditions: 
+      - obj: whiskyflasche
+        check: isInInventory
+      - obj: laken
+        check: isInInventory
+    text: |
+      Das Laken ist dafür zu feucht..
+
   #Fenster versuchen aufzumachen
   - !Action
     operation: benutze
@@ -416,10 +457,32 @@ actions:
       ......
       ......
       Schaffe es ganz knapp das Fenster aufzuhebeln, das Brett ist dabei zerbrochen. 
-      Laboe ich komme!
     changes:
       - obj: brett
         change: destroy
+
+  #Aus dem Fenster klettern (Flaggen im Weg)
+  - !Action
+    operation: gehe
+    target: fenster
+    conditions:
+      - obj: fenster
+        check: isNotActive
+      - place: laboe.naziroom
+    text: |
+      Der Weg zum Fenster ist  versperrt..
+
+  - !Action
+    operation: gehe
+    target: fenster
+    conditions:
+      - obj: fenster
+        check: isActive
+      - obj: brett
+        check: isNotDestroyed
+      - place: laboe.naziroom
+    text: |
+      Das Fenster ist verschlossen.
 
   #Aus dem Fenster klettern
   - !Action
@@ -430,7 +493,7 @@ actions:
         check: isDestroyed
       - place: laboe.naziroom
     text: |
-      Ich steige aus dem Fenster und stehe in Laboe am Strand
+      Ich steige aus dem Fenster und stehe in Laboe am Strand!
     changes:
       - place: laboe.strand
 
@@ -439,6 +502,15 @@ actions:
   - !Action
     operation: gehe
     target: links
+    conditions:
+      - obj: molotovcocktail
+        check: isNotInInventory
+    text: |
+      Ich möchte mich lieber nicht unbewaffnet der Gruppe nähern. Ich brauche ein Ablenkungsmannöver.
+
+  - !Action
+    operation: gehe
+    target: skinheads
     conditions:
       - obj: molotovcocktail
         check: isNotInInventory
@@ -477,6 +549,24 @@ actions:
       - obj: molotovcocktail
         change: destroy
       - place: kneipenterror.dunkelkammer
+
+  - !Action
+    operation: gehe
+    target: strand
+    conditions:
+      - place: laboe.strand
+    text: |
+      Ich springe über eine Mauer, die den Gehweg vom Sandstrand trennt. An der Mauer lehnen mehrere Dudes in Neoprenanzügen neben Surfbrettern mit Sylt-Wappen-Aufdruck.
+      Verstrahlt stolper ich über einen Sonnensprössling mit blondgefärbter Pinselfrise und Sportsonnenbrille. Er dreht sich nach mir um und sagt:
+      "Chrisoph?? Christoph Lobas? Was machst du denn hier?! Wie schön dich zu sehen!!! Wie gehts dir? Was machst du so? Bist du noch in Paderborn? Hab dich lang nich mehr im Resi gesehen.." 
+      Ich entgegne ein verdutztes "Ähhhm jein...?" In diesem Augenblick wird mir langsam klar um wen es sich handelt. Mir fällt nur der Name nicht ein, aber ich werde das Gefühl nicht los, dass seine Facebook Bilder nur Likes von ein und der selben Person haben.
+
+      Unbeeindruckt setze ich meinen Weg fort. Vor mir erblicke ich den einzig leeren Strandkorb im sichtbaren Umkreis. 
+      Er ist rot und die Polster rot-weiß gestreift. Ich muss sofort an Pommes denken. 
+      Nur sechs  - Nein! Eleven! - Krabbenlängen vom Korb entfernt spüre ich einen Windzug von rechts und sehe einen verschwommenen blonden Blitz an mir vorbei huschen.
+    changes:
+      - place: laboe.strand2
+
   ### PLACE 3 - Kneipen Terror ##########################
   #######################################################
   - !Action
@@ -558,7 +648,7 @@ actions:
       Dass zieht die Aufmerksamkeit der Wache auf dich. In langsamen Schritten kommt der wankende Durchschnitts-Kieler auf die Tür zu.
       "Hallo ist alles Ok???"
       Du stellst dich tot.
-      "Halloooo?? Scheiße der Blutet."
+      "Halloooo?? Scheiße der blutet."
       Die Wache schließt die Tür auf und stürmt in die Zelle rutscht dabei auf der Bananenschale aus, stößt sich an der Heinzketchupflasche den Kopf und liegt bewusstlos auf dem Boden.
     changes: 
       - obj: ketchup
@@ -568,6 +658,25 @@ actions:
         change: destroy
       - obj: wache
         change: activate
+
+  - !Action
+    operation: gehe
+    target: tür
+    conditions:
+    - obj: ketchup
+      check: isNotDestroyed
+    - place: kneipenterror.vorratskeller
+    text: |
+      Die Tür ist fest verschlossen. Wie komme ich nur hier raus?
+  - !Action
+    operation: benutze
+    target: tür
+    conditions:
+    - obj: ketchup
+      check: isNotDestroyed
+    - place: kneipenterror.vorratskeller
+    text: |
+      Ich kann die Tür nicht öffnen.
 
   - !Action
     operation: gehe
@@ -834,16 +943,12 @@ actions:
     conditions:
       - place: kneipenterror.bushaltestelle2
     text: |
-      Du hälst den Daumen raus... es bleibt ein Renault Clio mit getönten Scheiben stehen. Ein freundliches Pärchen schaut dich erwartungsvoll von den vorderen Sitze aus an.
-      "Wir hoffen du hast nen guten Grund wieso wir dich ohne Hose mitnehmen sollten!?"
-      - "Ich glaube nicht jeden Tag an Hosen. Ich kann euch außerdem auch 10€ geben..."
-      - "Immerhin glaubst du an irgendwas. Diese verkackten Nihilisten heutzutage lassen dich gut aussehen"
-      Die blondierte Frau des kurzhaarigen Ottos steigt aus, klappt ihren Sitz um und lässt dich einen Blick auf sie werfen. 
-      Es kommt dir so vor als wär es nicht Zufall, dass sie dir dabei ihr Hinterteil entgegenstreckt.
-      "Hoffentlich vergessen die das mit den 10€... Egal.. Lobatz jetzt geil." denkst du dir noch beim einsteigen.
+      Du hälst den Daumen raus... es bleibt ein Renault Clio mit getönten Scheiben stehen....
+      Hier endet leider Kapitel 1 lieber Batz und für mehr hat die Zeit bisher noch nicht ausgereicht. 
+      Bald aber folgen weitere Kapitel auf dem langen Weg nach Hause. 
     changes:
       - place: fahrt.kielpb
-  #### BRIDGE: Kiel -> Paderborn #######################################################################################
+
 
 
 

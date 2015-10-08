@@ -6,7 +6,7 @@ introduction: |
   Langsam kommst du zu dir... Dein Kopf brummt und dein Gesicht fuehlt sich an als waere gerade ein Eichen-Prozessionsspinner drueber hinweg prozessiert.
 
 startplace: laboe.naziroom
-startinventory: [feuerzeug, kippen]
+startinventory: [kippen]
 places: 
   - !Place
     name: laboe.naziroom
@@ -78,10 +78,10 @@ objects:
   #laboe
   - !Item
     name: feuerzeug
-    belongs_to: inventory
+    belongs_to: laboe.strand2
     description: |
       Es funktioniert noch!
-    active: True
+    active: False
   - !Item
     name: kippen
     belongs_to: inventory
@@ -141,12 +141,34 @@ objects:
       "Mensch Sören.. Ich hab an alles gedacht.. das Bier is im Kühler. Ich schlepp hier das Teil bis hier hin und so.. Und du vergisst die Hälfte."
       - "Ja wirklich ey. Alles ham wa da. Karten, Bier, Strand, Meer, Bock, aber der Sand is so heiß kannste dich ohne Decke ganich mit reinsetzen, nej?"
       - "Jungs.. Hebbert, Hansen es tut mir ja auch viel leid und so nej. Aber das war nun auch echt kein Absicht.. Was mache wa nen nu?"
+
+  - !Item
+    name: kühlbox
+    active: False
+    belongs_to: laboe.strand2
+    description: |
+      Eine alte vergilbte Kühlbox. Ihre Wände sind mit nicht mehr ganz so kühlen Grafenwalder Dosen gefüttert. Zwischen all dem Bier blitzt eine Tube 50er Sonnencreme auf.
+
+  - !Item
+    name: sonnencreme 
+    active: False
+    belongs_to: laboe.strand2
+    description: |
+      Typisch britisch deutsche Sonnencreme 50. Sehr weiß, sehr dick.
+
   - !Item
     name: kind
     active: True
     belongs_to: laboe.strand2
     description: |
       Dummes, kleines, nerviges, spielendes, holländisches Kind... Lässt mich bestimmt auch nich mitspielen... Sandburg.. Typisch.
+  - !Item
+    name: sandburg
+    active: True
+    belongs_to: laboe.strand2
+    description: |
+      Die Sandburg ähnelt dem antiken Amsterdam. Das Kind hat als Schornstein ein gelbes Feuerzeug verwendet.
+
   - !Item
     name: dirk
     active: True
@@ -156,12 +178,19 @@ objects:
       Ich machs wie seine Profilbilder: Kein Kommentar.
       "Naja.. is auch ganz schön heiß heute.. Ich verbrenne in der Sonne.. würd ja lieber noch was brutzeln"
       Ich denke ich sollte Dirk ganz eigennützig gegen die Sonne schützen.
-    - !Item
+
+  - !Item
+    name: badelatschen
+    active: False
+    belongs_to: laboe.strand2
+    description: |
+      Gute alte Addiletten.
+  - !Item
     name: strandkorb
     active: True
     belongs_to: laboe.strand2
     description: |
-      Unter dem Pommes Schranke farbenen Strandkorb
+      Unter dem Pommes-Schranke farbenen Strandkorb befindet sich ein Paar Rackow'sche Badelatschen.
 
   #kneipenterror
   - !Item
@@ -554,6 +583,8 @@ actions:
     operation: gehe
     target: strand
     conditions:
+      - obj: feuerzeug
+        check: isNotInInventory
       - place: laboe.strand
     text: |
       Ich springe über eine Mauer, die den Gehweg vom Sandstrand trennt. An der Mauer lehnen mehrere Dudes in Neoprenanzügen neben Surfbrettern mit Sylt-Wappen-Aufdruck.
@@ -566,6 +597,121 @@ actions:
       Nur sechs  - Nein! Eleven! - Krabbenlängen vom Korb entfernt spüre ich einen Windzug von rechts und sehe einen verschwommenen blonden Blitz an mir vorbei huschen.
     changes:
       - place: laboe.strand2
+
+  - !Action
+    operation: gehe
+    target: strand
+    conditions:
+      - obj: feuerzeug
+        check: isInInventory
+      - place: laboe.strand
+    text: |
+       Zu der Amazonin gehe ich lieber nicht zurück..
+
+  ### PLACE 2 - Laboer Strand ############
+  ########################################
+
+  - !Action
+    operation: gehe
+    target: zurück
+    conditions:
+      - place: laboe.strand2
+    text: |
+      Ich gehe zurück auf den Weg vorm Haus. Dirk folgt mir fast unauffällig bis zum Strandende.
+    changes:
+      - place: laboe.strand
+
+  - !Action
+    operation: benutze
+    target: laken
+    target2: touristen
+    conditions:
+      - obj: laken
+        check: isInInventory
+      - place: laboe.strand2
+    text: |
+      Du reichst dem Skat-Trio dein Laken und sie breiten sich direkt darauf aus.
+      "Achtzen"
+      - "Yo!"
+      - "Zwanzig?"
+      - "Yep?"
+      - "Zwo?!"
+      - "Jab."
+      - "Null?"
+      - "Weg."
+      - "Ich auch.."
+      - "Na dann spielen wa Kreuz.. Du hast. Achja.. Kerl ohne Hose... du kannst dich gerne anner Kühlbox bedienen."
+    changes:
+      - obj: laken
+        change: destroy
+      - obj: kühlbox
+        change: activate
+      - obj: sonnencreme
+        change: activate
+
+  - !Action
+    operation: nehme
+    target: sonnencreme
+    text: |
+      Ich packe die Sonnencreme in die Tasche.
+
+  - !Action
+    operation: benutze
+    target: sonnencreme
+    target2: dirk
+    conditions:
+      - obj: sonnencreme
+        check: isInInventory
+      - place: laboe.strand2
+    text: |
+      Voller Misgunst biete ich El Rackow die Sonnencreme in Verbindung mit meinen helfenden Händen an. Er akzeptiert kommentarlos schmunzelnd das Angebot und dreht mir seinen blassen Rücken zu.
+      Ich kann es mir nicht nehmen lassen und zeichne mit Sonnencreme unauffällig die Umrisse eines männl. Phallus auf seinen Rücken.
+      Er verlässt immerhin sofort den Strandkorb und legt sich zurück in die Sonne.
+    changes:
+      - obj: sonnencreme
+        change: destroy
+      - obj: badelatschen
+        change: activate
+      - obj: dirk
+        change: deactivate
+
+  - !Action
+    operation: nehme
+    target: badelatschen
+    text: |
+      Jetzt fehlen mir nur noch weiße Tennissocken.
+
+  - !Action
+    operation: benutze
+    target: badelatschen
+    target2: sandburg
+    conditions:
+      - obj: badelatschen
+        check: isInInventory
+      - place: laboe.strand2
+    text: |
+      Typisch Deutsch schmeiße ich die Badelatschen auf das stolze Werk des jungen Künstlers. Dabei stürzt auch das Haus mit dem Feuerzeug-Schornstein ein.
+      Das Kind rennt heulschreiend von dannen.
+    changes:
+      - obj: badelatschen
+        change: destroy
+      - obj: feuerzeug
+        change: activate
+      - obj: sandburg
+        change: deactivate
+      - obj: kind
+        change: deactivate
+
+  - !Action
+    operation: nehme
+    target: feuerzeug
+    text: |
+      Gerade als ich das rettende Feuer an mich nehme, erscheint die 2,11m große holländische Amazonenmutter des Kindes und flucht wütend auf ihrer Muttersprache.
+      "Klootzak bischt du Jonge! Du Fotze!" 
+      Ich ergreife geistesgegenwärtig die Flucht nach hinten zurück zu der Promenade.
+    changes:
+      - place: laboe.strand
+
 
   ### PLACE 3 - Kneipen Terror ##########################
   #######################################################

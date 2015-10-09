@@ -3,7 +3,9 @@ introduction: |
   Alle Charaktere sind echt und nichts ist gelogen. Trotz fehlender Quellenangaben kann man hier alles und nichts glauben.
   Doch worum geht es hier überhaupt? Um einen Helden?
   Wenn ja, dann ist es ein Held der ungern Hosen trägt und  gerne Bier trinkt. Manchmal zu viel... wie in dieser Geschichte.
-  Langsam kommst du zu dir... Dein Kopf brummt und dein Gesicht fuehlt sich an als waere gerade ein Eichen-Prozessionsspinner drueber hinweg prozessiert.
+  .......................
+  Langsam komme ich zu mir.......... 
+  ....mit brummendem Kopf und nem Gesicht, dass sich anfuehlt als waere gerade ein Eichen-Prozessionsspinner drueber hinweg prozessiert.
 
 startplace: laboe.naziroom
 startinventory: [kippen]
@@ -11,8 +13,8 @@ places:
   - !Place
     name: laboe.naziroom
     description: |
-      Du befindest dich in einem halbdunklen Raum. Durch einen Spalt über einer Hakenkreuzflagge scheint etwas Licht hinein.. Es scheint sich ein Fenster dahinter zu verbergen.
-      Du hast auf einer Art Bett geschlafen und hast das Gefuehl, dass du nach Hause gehen solltest.
+      Ich befinde mich in einem halbdunklen Raum. Durch einen Spalt über einer Hakenkreuzflagge scheint etwas Licht hinein.. Es scheint sich ein Fenster dahinter zu verbergen.
+      Ich habe auf einer Art Bett geschlafen und das Gefuehl, dass ich irgendwie nach Hause gehen sollte.
   - !Place
     name: laboe.strand
     description: |
@@ -24,7 +26,7 @@ places:
     name: laboe.strand2
     description: |
       Ich befinde mich mitten auf dem Laboer Badestrand. Neben mir steht eine Gruppe klischeehafter Touristen mit einer großen Kühlbox die ratlos umher sehen.
-      Im Strandkorb vor mir sitzt Dirk Rackow und genießt den Augenblick...
+      Im Strandkorb vor mir sitzt Dirk R. und genießt den Augenblick...
       Zu seinen Füßen baut ein holländisches Kind eine Sandburg.
   - !Place
     name: kneipenterror.dunkelkammer
@@ -43,8 +45,8 @@ places:
       Dies fällt jedoch erst auf den zweiten Bick auf, da eine lautstarke Jagd rings um einen Fliesentisch stattfindet. 
       Ein junger heruntergekommener Mann, mit norddeutschem Akzent fluchend, läuft mit einer Gaspistole bewaffnet hinter einer 
       erstaunlich schnellen Vogelspinne hinterher.
-      Du stehst selbst unmittelbar vor einer Kochplatte, die jedoch nicht angeschlossen ist.
-      Hinter dir führt eine Treppe in den Keller und du hörst leise Stimmen hinter der Küchentür.
+      Ich stehe selbst unmittelbar vor einer Kochplatte, die jedoch nicht angeschlossen ist.
+      Hinter mir führt eine Treppe in den Keller und ich höre leise Stimmen hinter der Küchentür.
 
   - !Place
     name: kneipenterror.kueche1
@@ -55,19 +57,19 @@ places:
   - !Place
     name: kneipenterror.kueche2
     description: |
-      Die Lauchgestalten sind verschwunden und du bist alleine in der Küche. Es liegt ein seltsamer stechender Geruch in der Luft.
+      Die Lauchgestalten sind verschwunden und ich bin jetzt alleine in der Küche. Es liegt ein seltsamer stechender Geruch in der Luft.
       Auf dem Herd steht eine Pfanne.
       An die Küche grenzt direkt das Klo an.
   - !Place
     name: kneipenterror.bushaltestelle
     description: |
-      Du befindest dich an einer Bushaltestelle mitten in Kiel. Die Destroyers und Kneipenterroristen warten mit dir auf den Bus.
+      Ich befinde mich an einer Bushaltestelle mitten in Kiel. Die Destroyers und Kneipenterroristen warten mit mir auf den Bus.
       Sie phantasieren darüber, wie sie es den Laboern zeigen werden. Halbstarke mit Baseball Schlägern laden zum sich von Ihnen fernhalten ein..
       Die Bushaltestelle erinnert ansonsten an das alte Ostdeutschland.. eine kaputte Bank und ein Fahrplan mit zerschalgener Scheibe dienen zur Unterhaltung beim Warten.
   - !Place
     name: kneipenterror.bushaltestelle2
     description: |
-      Du befindest dich an einer Bushaltestelle mitten in Kiel.
+      Ich befinde mich an einer Bushaltestelle mitten in Kiel.
       Die Bushaltestelle erinnert ansonsten an das alte Ostdeutschland.. eine kaputte Bank und ein Fahrplan mit zerschlagener Scheibe dienen zur Unterhaltung beim Warten.
   - !Place
     name: fahrt.kielpb
@@ -181,7 +183,7 @@ objects:
 
   - !Item
     name: badelatschen
-    active: False
+    active: True
     belongs_to: laboe.strand2
     description: |
       Gute alte Addiletten.
@@ -190,7 +192,7 @@ objects:
     active: True
     belongs_to: laboe.strand2
     description: |
-      Unter dem Pommes-Schranke farbenen Strandkorb befindet sich ein Paar Rackow'sche Badelatschen.
+      Unter dem Pommes-Schranke farbenen Strandkorb befindet sich ein Paar Dirk'sche Badelatschen.
 
   #kneipenterror
   - !Item
@@ -241,7 +243,7 @@ objects:
     belongs_to: kneipenterror.vorratskeller
     description: |
       Eine verschlossene Tür. Unten ist ein Spalt durch den man sehen kann.
-      Dort erkennst du, dass jemand mit Fokuhila und 90er Bart Wache steht.
+      Dort erkenne ich, dass jemand mit Fokuhila und 90er Bart Wache steht.
   - !Item
     name: teeei
     active: True
@@ -253,7 +255,7 @@ objects:
     active: False
     belongs_to: kneipenterror.vorratskeller
     description: |
-      Du durchsuchst die bewusstlose Wache. Ein geriffelter Gegenstand, der Meeresgeräusche macht ist in seiner Brusttasche.
+      Ich durchsuchse die bewusstlose Wache. Ein geriffelter Gegenstand, der Meeresgeräusche macht ist in seiner Brusttasche.
 
   ### Wohnzimmer und Küche
   - !Item
@@ -273,7 +275,7 @@ objects:
     active: False
     belongs_to: kneipenterror.wohnzimmer
     description: |
-      Du hörst leise Stimmen durch die Tür. Kannst aber nicht genau verstehen, was gesagt wird.
+      Ich höre leise Stimmen durch die Tür.. kann aber nicht genau verstehen, was gesagt wird.
   - !Item
     name: glas 
     active: True
@@ -331,7 +333,7 @@ objects:
   - !Item
     name: pfanne
     active: True
-    belongs_to: kneipenterror.kueche2
+    belongs_to: kneipenterror.kueche1
     description: |
       Die Pfanne scheint schon heiß zu sein.
   - !Item
@@ -384,7 +386,7 @@ actions:
         check: isActive
       - place: laboe.naziroom
     text: |
-      Du setzt dich aufs Bett. Dabei zerbricht das Brett. Das Brett und Laken liegen jetzt nebeneinander auf dem Boden.
+      Ich setze mich aufs Bett. Dabei zerbricht das Brett. Das Brett und Laken liegen jetzt nebeneinander auf dem Boden.
     changes:
       - obj: bett
         change: destroy
@@ -664,7 +666,7 @@ actions:
         check: isInInventory
       - place: laboe.strand2
     text: |
-      Voller Misgunst biete ich El Rackow die Sonnencreme in Verbindung mit meinen helfenden Händen an. Er akzeptiert kommentarlos schmunzelnd das Angebot und dreht mir seinen blassen Rücken zu.
+      Voller Misgunst biete ich Dirk die Sonnencreme in Verbindung mit meinen helfenden Händen an. Er akzeptiert kommentarlos schmunzelnd das Angebot und dreht mir seinen blassen Rücken zu.
       Ich kann es mir nicht nehmen lassen und zeichne mit Sonnencreme unauffällig die Umrisse eines männl. Phallus auf seinen Rücken.
       Er verlässt immerhin sofort den Strandkorb und legt sich zurück in die Sonne.
     changes:
@@ -774,7 +776,8 @@ actions:
       - obj: bananenschale
         check: isInInventory
       - place: kneipenterror.vorratskeller
-    text: Du platzierst die Bananenschale vor der verschlossenen Tür.
+    text: |
+      Ich platziere die Bananenschale vor der verschlossenen Tür.
     changes:
       - obj: bananenschale
         change: putToPlace
@@ -790,10 +793,10 @@ actions:
         check: isAt
         param: kneipenterror.vorratskeller
     text: |
-      Du schüttest den Ketchup unter dem Türspalt hindurch, so dass er in den Flur fließt und gehst an die andere Ecke des Raumes.
-      Dass zieht die Aufmerksamkeit der Wache auf dich. In langsamen Schritten kommt der wankende Durchschnitts-Kieler auf die Tür zu.
+      Ich schütte den Ketchup unter dem Türspalt hindurch, so dass er in den Flur fließt und gehe dann an die andere Ecke des Raumes.
+      Dass zieht die Aufmerksamkeit der Wache auf mich. In langsamen Schritten kommt der wankende Durchschnitts-Kieler auf die Tür zu.
       "Hallo ist alles Ok???"
-      Du stellst dich tot.
+      Ich stelle mich tot.
       "Halloooo?? Scheiße der blutet."
       Die Wache schließt die Tür auf und stürmt in die Zelle rutscht dabei auf der Bananenschale aus, stößt sich an der Heinzketchupflasche den Kopf und liegt bewusstlos auf dem Boden.
     changes: 
@@ -831,7 +834,7 @@ actions:
       - obj: ketchup
         check: isDestroyed
     text: |
-      Du gehst durch die Kellertür und eine Treppe hoch.
+      Ich gehe durch die Kellertür und eine Treppe hoch.
     changes:
       - place: kneipenterror.wohnzimmer
   ## Wohnzimmer
@@ -859,7 +862,7 @@ actions:
         check: isInInventory
       - place: kneipenterror.wohnzimmer
     text: |
-      Du kannst das Gespräch jetzt verstehen:
+      Ich kann das Gespräch jetzt verstehen:
       "Dieser Junge ohne Hose ist wirklich ein tapferes Kerlchen. Wie er die Blue Brothers fertig gemacht hat, ist der Hammer.
       Und bei uns Kneipenterroristen passt er perfekt rein. Hoffentlich besteht er unser Aufnahmeritual...
       Dann gibt es eine Menge Holsten für alle. Später kommen auch die Destroyers."
@@ -875,9 +878,18 @@ actions:
     conditions:
       - place: kneipenterror.wohnzimmer
     text: |
-      Du gehst die Treppe runter...
+      Ich gehe die Treppe runter...
     changes:
       - place: kneipenterror.vorratskeller
+  - !Action
+    operation: gehe
+    target: küchentür
+    conditions:
+      - obj: küchentür
+        check: isNotActive
+      - place: kneipenterror.wohnzimmer
+    text: |
+      Ich möchte nicht in die Küche gehen ohne zu wissen was mich da erwartet.
   - !Action
     operation: gehe
     target: küchentür
@@ -888,7 +900,7 @@ actions:
         check: isNotInInventory
       - place: kneipenterror.wohnzimmer
     text: |
-      Du gehst durch die Tür in die Küche beim betreten wirst du von zwei Lauchgestalten schief angegrinst
+      Ich gehe durch die Tür in die Küche beim betreten grinsen mich zwei Lauchgestalten schief an.
     changes:
       - place: kneipenterror.kueche1
   - !Action
@@ -901,7 +913,7 @@ actions:
         check: isInInventory
       - place: kneipenterror.wohnzimmer
     text: |
-      Du gehst durch die Tür in die Küche.
+      Ich gehe durch die Tür in die Küche.
     changes:
       - place: kneipenterror.kueche2
   - !Action
@@ -910,7 +922,7 @@ actions:
     conditions:
       - place: kneipenterror.kueche1
     text: |
-      Du gehst durch die Tür ins Wohnzimmer.
+      Ich gehe durch die Tür ins Wohnzimmer.
     changes:
       - place: kneipenterror.wohnzimmer
   - !Action
@@ -919,14 +931,40 @@ actions:
     conditions:
       - place: kneipenterror.kueche2
     text: |
-      Du gehst durch die Tür ins Wohnzimmer.
+      Ich gehe durch die Tür ins Wohnzimmer.
     changes:
       - place: kneipenterror.wohnzimmer
+  - !Action
+    operation: benutze
+    target: pfanne
+    conditions:
+      - place: kneipenterror.kueche1
+    text: |
+      "Hey!! Lass die Finger davon..." 
+      So lange die beiden hier aufpassen kann ich die wohl nicht benutzen.
+  - !Action
+    operation: benutze
+    target: pfanne
+    target2: kartoffeln
+    conditions:
+      - place: kneipenterror.kueche1
+    text: |
+      "Hey!! Lass die Finger davon..." 
+      So lange die beiden hier aufpassen kann ich die wohl nicht benutzen.
+  - !Action
+    operation: benutze
+    target: pfanne
+    target2: zwiebeln
+    conditions:
+      - place: kneipenterror.kueche1
+    text: |
+      "Hey!! Lass die Finger davon..." 
+      So lange die beiden hier aufpassen kann ich die wohl nicht benutzen.
   - !Action
     operation: nehme
     target: milch
     text: |
-      Du packst die Milchtüte ein.
+      Ich packe die Milchtüte ein.
   - !Action
     operation: benutze
     target: glas
@@ -960,6 +998,26 @@ actions:
         change: destroy
   - !Action
     operation: benutze
+    target: klo
+    conditions:
+      - obj: darmballast
+        check: isNotInInventory
+      - place: kneipenterror.kueche1
+    text: |
+      Ich kann grad nicht..
+
+  - !Action
+    operation: benutze
+    target: klo
+    conditions:
+      - obj: darmballast
+        check: isInInventory
+      - place: kneipenterror.kueche1
+    text: |
+      Was soll ich auf der Toilette machen?
+
+  - !Action
+    operation: benutze
     target: darmballast
     target2: klo
     conditions:
@@ -967,14 +1025,17 @@ actions:
         check: isInInventory
       - place: kneipenterror.kueche1
     text: |
-      Du stürmst aufs Klo und wirst jeglichen flüssigen, stinkenden Ballast los. Danach sitzt du noch eine Weile rum und bewunderst dein Stolzes Geschäft.
-      Dabei entdeckst du einen Kaktus, der auf der Waschmaschine steht. Als Andenken nimmst du ihn mit.
-      Du hörst ein Stöhnen und gepolter als würde eine Horde Kneipenterroristen aus der Küche stürmen. Dabei stoßen sie noch ein "Son oller Stinker!" aus.
+      Ich stürme aufs Klo und werde jeglichen flüssigen, stinkenden Ballast los. Danach sitze ich noch eine Weile rum und bewunderst mein Stolzes Geschäft.
+      Dabei entdecke ich einen Kaktus, der auf der Waschmaschine steht. Als Andenken nimmst stecke ich ihn ein.
+      In der Küche ist ein Stöhnen und Gepolter als würde eine Horde Kneipenterroristen raus stürmen. Dabei stoßen sie noch ein "Son oller Stinker!" aus.
     changes:
       - obj: darmballast
         change: destroy
       - obj: kaktus
         change: toInventory
+      - obj: pfanne
+        change: putToPlace
+        param: kneipenterror.kueche2
       - place: kneipenterror.kueche2
   - !Action
     operation: benutze
@@ -989,7 +1050,7 @@ actions:
         check: isActive
       - place: kneipenterror.kueche2
     text: |
-      Du wirfst die Zwiebeln in die Pfanne.
+      Ich werfe die Zwiebeln in die Pfanne.
     changes:
       - obj: zwiebeln
         change: deactivate
@@ -1004,8 +1065,8 @@ actions:
         check: isInInventory
       - place: kneipenterror.kueche2
     text: |
-      Du wirfst die Kartoffeln zu den Zwiebeln... 
-      Jetzt sind die Zwiebeln verbrannt und die Kartoffeln noch nicht gar. Du haust alles zusammen umweltbewusst in den Mülleimer.
+      Ich werfe die Kartoffeln zu den Zwiebeln... 
+      Jetzt sind die Zwiebeln verbrannt und die Kartoffeln noch nicht gar. Ich haue alles zusammen umweltbewusst in den Mülleimer.
     changes:
       - obj: zwiebeln
         change: activate
@@ -1020,7 +1081,7 @@ actions:
         check: isInInventory
       - place: kneipenterror.kueche2
     text: |
-      Du wirfst die Zwiebeln zu den Kartoffeln in die Pfanne und wartest...
+      Ich werfe die Zwiebeln zu den Kartoffeln in die Pfanne und warte...
       Nach einer kurzen weile werden daraus lecker Bratkartoffeln.
     changes:
       - obj: zwiebeln
@@ -1038,10 +1099,22 @@ actions:
         check: isInInventory
       - place: kneipenterror.kueche2
     text: |
-      Du wirfst die Kartoffeln in die Pfanne.
+      Ich werfe die Kartoffeln in die Pfanne.
     changes:
       - obj: kartoffeln
         change: destroy
+  - !Action
+    operation: benutze
+    target: glas
+    target2: vogelspinne
+    conditions:
+      - obj: glas
+        check: isInInventory
+      - obj: vogelspinne
+        check: isNotDestroyed
+      - place: kneipenterror.wohnzimmer
+    text: |
+      Die is einfach zu schnell für mich.. Die is aaaarsch schnell...
   - !Action
     operation: benutze
     target: bratkartoffeln
@@ -1051,16 +1124,18 @@ actions:
         check: isInInventory
       - place: kneipenterror.wohnzimmer
     text: |
-      Du wirfst die Bratkartoffeln Herrn Fugbaum zum fressen hin. In einer irren Geschwindigkeit verdrückt die Spinne das köstliche Gericht.
+      Ich werfe die Bratkartoffeln Herrn Fugbaum zum fressen hin. In einer irren Geschwindigkeit verdrückt die Spinne das köstliche Gericht.
       Sie läuft aber jetzt deutlich langsamer und entspannter. Sie ist nicht mehr hungrig.
       Der Chef der Kieler Kneipenterroristen fängt Herrn Fugbaum mit links und wirft sie gekonnt ins Terrarium.
-      Danach kommt er zu dir und dankt dir:
+      Danach kommt er zu mir und bedankt sich:
       "Hosenlo(s)batz.. wie soll ich dir das je verdanken.. Herr Fugbaum war so aaarsch schnell. Ohne deine Bratkartoffeln hätten wir es nicht mehr zeitig nach Laboe geschafft..
       Du hast damit unser Aufnahmeritual neu definiert und bist jetzt ein volles Mitglied der Kneipenterroristen."
-      Du erhälst eine Kutte der Kneipenterroristen. In diesem Moment erreichen auch die Destroyers die Party. 
-      Dir wird lässig ein Holsten zugeworfen und die Gruppe bricht auf Richtung Bushaltestelle.
+      Er gibt mir eine Kutte der Kneipenterroristen. In diesem Moment erreichen auch die Destroyers die Party. 
+      Jemand wirft mir lässig ein Holsten zu und wir brechen in Richtung Bushaltestelle auf.
     changes:
       - obj: bratkartoffeln
+        change: destroy
+      - obj: vogelspinne
         change: destroy
       - obj: holsten
         change: toInventory
@@ -1074,12 +1149,12 @@ actions:
     conditions:
       - place: kneipenterror.bushaltestelle
     text: | 
-      Du steckst dir ne Kippe an und als du gerade das erste mal ziehen willst taucht der Bus auf.
+      Lässig drehe ich mir ne Kippe, stecke sie an und als ich gerade das erste mal ziehen will taucht der Bus auf.
       Die Gruppe hungriger und heißer Proleten stürmt bei Gelächter und Geprotze in den Bus. 
-      Sie rufen dich: "Hey Hosenlo(s)batz.. komm ran hier!" 
-      Du steigst mit ein. 
-      Kurz bevor die Türen schließen springst du elegant aus dem Bus und stürzt dabei auf deinen Kaktus. Es bleiben ein paar Stacheln in deiner Hand stecken.
-      Der Bus fährt ab, du packst die Stacheln vorsichtig ein und bist jetzt alleine.
+      Sie rufen mich: "Hey Hosenlo(s)batz.. komm ran hier!" 
+      Ich steige zu ihnen ein. 
+      Kurz bevor die Türen schließen überlege ich es mir anders: Ich springe elegant aus dem Bus und stüre dabei auf den Kaktus. Es bleiben ein paar Stacheln in meiner Hand stecken.
+      Der Bus fährt ab, ich packe die Stacheln vorsichtig ein und bin jetzt alleine.
     changes:
       - obj: stacheln 
         change: toInventory
@@ -1089,11 +1164,23 @@ actions:
     conditions:
       - place: kneipenterror.bushaltestelle2
     text: |
-      Du hälst den Daumen raus... es bleibt ein Renault Clio mit getönten Scheiben stehen....
+      Ich halte den Daumen raus... es bleibt ein Renault Clio mit getönten Scheiben stehen....
       Hier endet leider Kapitel 1 lieber Batz und für mehr hat die Zeit bisher noch nicht ausgereicht. 
       Bald aber folgen weitere Kapitel auf dem langen Weg nach Hause. 
     changes:
       - place: fahrt.kielpb
+
+
+
+  - !Action
+    operation: benutze
+    target: kippen
+    target2: feuerzeug
+    conditions:
+      - obj: feuerzeug
+        check: isInInventory
+    text: |
+      Ich will grad nicht rauchen..
 
 
 

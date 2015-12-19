@@ -183,7 +183,7 @@ objects:
 
   - !Item
     name: badelatschen
-    active: True
+    active: False
     belongs_to: laboe.strand2
     description: |
       Gute alte Addiletten.
@@ -192,7 +192,7 @@ objects:
     active: True
     belongs_to: laboe.strand2
     description: |
-      Unter dem Pommes-Schranke farbenen Strandkorb befindet sich ein Paar Dirk'sche Badelatschen.
+      Ein Pommes-Schranke farbener Strandkorb.
 
   #kneipenterror
   - !Item
@@ -534,8 +534,7 @@ actions:
     operation: gehe
     target: links
     conditions:
-      - obj: molotovcocktail
-        check: isNotInInventory
+      - place: laboe.strand
     text: |
       Ich möchte mich lieber nicht unbewaffnet der Gruppe nähern. Ich brauche ein Ablenkungsmannöver.
 
@@ -543,8 +542,7 @@ actions:
     operation: gehe
     target: skinheads
     conditions:
-      - obj: molotovcocktail
-        check: isNotInInventory
+      - place: laboe.strand
     text: |
       Ich möchte mich lieber nicht unbewaffnet der Gruppe nähern. Ich brauche ein Ablenkungsmannöver.
 
@@ -668,7 +666,7 @@ actions:
     text: |
       Voller Misgunst biete ich Dirk die Sonnencreme in Verbindung mit meinen helfenden Händen an. Er akzeptiert kommentarlos schmunzelnd das Angebot und dreht mir seinen blassen Rücken zu.
       Ich kann es mir nicht nehmen lassen und zeichne mit Sonnencreme unauffällig die Umrisse eines männl. Phallus auf seinen Rücken.
-      Er verlässt immerhin sofort den Strandkorb und legt sich zurück in die Sonne.
+      Er verlässt immerhin sofort den Strandkorb und legt sich zurück in die Sonne. Dabei hat er seine badelatschen liegen gelassen..
     changes:
       - obj: sonnencreme
         change: destroy
@@ -1181,15 +1179,3 @@ actions:
         check: isInInventory
     text: |
       Ich will grad nicht rauchen..
-
-
-
-
-
-
-
-
-
-
-
-

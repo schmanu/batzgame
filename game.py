@@ -83,7 +83,8 @@ class Game(object):
       for take_obj in self.objects[what]:
         if take_obj.isActive() and take_obj.isNotInInventory() and take_obj.isAt(State.currentplace.name):
           if self.executeOperation(what, "nehme"):
-            take_obj.toInventory()
+            if not take_obj.isDestroyed():
+              take_obj.toInventory()
             return
     print("Das kann ich nicht tun.")
 

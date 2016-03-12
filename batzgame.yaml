@@ -7,8 +7,10 @@ introduction: |
   Langsam komme ich zu mir.......... 
   ....mit brummendem Kopf und nem Gesicht, dass sich anfuehlt als waere gerade ein Eichen-Prozessionsspinner drueber hinweg prozessiert.
 
-startplace: laboe.naziroom
-startinventory: [kippen]
+#startplace: laboe.naziroom
+#startinventory: [kippen]
+startplace: fahrt.kielpb
+startinventory: [stacheln, kutte, holsten, feuerzeug, kippen, tageszeitung, muschel, teeei]
 places: 
   - !Place
     name: laboe.naziroom
@@ -74,7 +76,7 @@ places:
   - !Place
     name: fahrt.kielpb
     description: |
-      Created by Puk0000r und Schmanu.
+      Ich sitze in einem aufgemotzten Renault Clio. Ein feines Teil mit allem drum und dran. Ein aufgepumpter Typ der sich Rainer nennt sitzt in einem schwarz-weißen Leder Sportsitz. Neben ihm sitzt seine Freundin Sandra, die sich gerade gelangweilt schminkt. Die Rückbank teile ich mir mit einem Reisekoffer und meinem Kater.
 
 objects:
   #laboe
@@ -350,8 +352,8 @@ objects:
       Eine gut gepflegte Kutte der Kieler Kneipenterroristen.
   - !Item
     name: holsten
-    active: False
-    belongs_to: None
+    active: True
+    belongs_to: inventory
     description: |
       Holsten knallt am dollsten!
   - !Item
@@ -368,10 +370,164 @@ objects:
       Mit Silber-Edding geschrieben steht: "Wer das liest ist Lobatz." Es fehlen alle Bretter der Rückenlehne.
   - !Item
     name: stacheln
+    active: True
+    belongs_to: inventory
+    description: |
+      Achtung stachlig. Etwas blut von mir klebt noch dran.
+
+  ### CHAPTER 2 - Items ####################
+  - !Item
+    name: rainer
+    active: True
+    belongs_to: fahrt.kielpb
+    description: |
+      Rainer ist umhüllt von einem Männer Tank Top mit "Big Bad Biceps" Aufschrift und trägt eine randlose Brille im filigranen Design mit ovalen Gläsern am Ende von zwei dünnen Flexbügeln. 
+  - !Item
+    name: sandra
+    active: True
+    belongs_to: fahrt.kielpb
+    description: |
+      Sie scheint zur Zeit die Freundin von unserem Fahrer Rainer zu sein. Ihre Gucci Tasche signalisiert mir, dass Geld sie willenlos macht so wie Armenviertel. 
+      Sandra sitzt zwar nicht splitternackt im Clio, aber im knappen Outfit wie ein Ritterassistent und hält in ihrer linken Hand fünf faltenfreie Fuffis mit denen sie ihr Gesicht fächert.
+      Ich glaube sie versucht ihren enttäuschten Blick zu überschminken, der Rainer "Wieso haben wir diesen Schnorrer mitgenommen?"-schreiend ansieht. Ganz schön dreist mir sowas zu unterstellen..
+      Andererseits wurde mein Bafög Antrag tatsächlich gerade zurückgestellt, weil ich vergessen habe mein Fahrrad beim Besitz anzugeben und mir fehlen ca. 150€ Miete.
+  - !Item
+    name: reisetasche
+    active: True
+    belongs_to: fahrt.kielpb
+    description: |
+      Das ist doch die Samsonite Spark Upright mit integriertem TSA Zahlenschloss.
+  - !Item
+    name: sportsitz
+    active: True
+    belongs_to: fahrt.kielpb
+    description: |
+      Ernsthaft? Sportsitze im Clio. Tze. Hmm da liegt irgendwas unterm Fahrersitz.. 
+      Ich glaub das is ein Ypsheft!? Wusst nicht, dass es die noch gibt. 
+  - !Item
+    name: ypsheft
+    active: True
+    belongs_to: fahrt.kielpb
+    description: |
+      Ausgabe Yps 1181 (Der Schlips-Schlucker). Leider fehlt der Schlips Schlucker.. inhaltlich unter anderem mit der Episode "Zaubertrank" von den Punk Piraten.
+  - !Item
+    name: rezept
+    active: True
+    belongs_to: fahrt.kielpb
+    description: |
+      Punk Piraten: Zaubertrank
+      TODO WRITE TEXT
+  - !Item
+    name: lesezeichen
+    active: False
+    belongs_to: fahrt.kielpb
+    description: |
+      Merkwürdiges Lesezeichen.. Es ist etwas verdreckt. Unter einem Bild aus dem ich nichts erkennen kann sind nur ein paar Buchstaben lesbar:
+      La _ o _ a t _ _ _ u m
+      + ...
+      ... 1 Ak
+  - !Item
+    name: puderdose
+    active: False
+    belongs_to: fahrt.kielpb
+    description: |
+      Sandras Schmuckkästchen.. Halb aufgebraucht.
+  - !Item
+    name: wattestäbchen
     active: False
     belongs_to: None
     description: |
-      Achtung stachlig. Etwas blut von mir klebt noch dran.
+      Meine Ohren sind zwar nicht sauber, aber ich will auch nicht hören was andere über mich sagen.
+  - !Item
+    name: probe
+    active: False
+    belongs_to: None
+    description: |
+      Eine Probe von Sandra. Ich kann sie jetzt klonen und hab dann meine eigene.
+  - !Item
+    name: kronkorken
+    active: False
+    belongs_to: None
+    description: |
+      Ein etwas verbogener Holsten-Kronkorken.
+  - !Item
+    name: zaubertrank
+    active: False
+    belongs_to: None
+    description: |
+      Ein magischer Zaubertrank nach dem Ypsheft-Rezept! 
+      Damit kann ich kann ich hoffentlich richtig bei Sandra punkten. Oder sie wenigstens verzaubern.
+  - !Item
+    name: laboratorium
+    active: False
+    belongs_to: None
+    description: |
+      Laboratorium (Aktion):
+      + 2 Karten
+      + 1 Aktion
+      (Kosten: 5)
+  - !Item
+    name: räuber
+    active: False
+    belongs_to: None
+    description: |
+      Edler Räuber (Aktion/Angriff): 
+      + 1 Geld
+      Wenn du diese Karte kaufst oder ausspielst, muss jeder Mitspieler die obersten 2 Karten von seinem Nachziehstapel aufecken. Hat er ein Gold oder ein Silber aufgedeckt, muss er dieses entsorgen. Hat der Spieler beides aufgedeckt, entscheidest du, welche er entsorgen muss. Hat der Spieler keine Geldkarte aufgedeckt, muss er sich ein Kupfer nehmen. Die übrigen aufgedeckten Karten muss der Spieler ablegen. Du musst alle entsorgten Karten nehmen. 
+      (Kosten: 4)
+  - !Item
+    name: dieb
+    active: False
+    belongs_to: None
+    description: |
+      Dieb (Aktion/Angriff): 
+      Jeder Mitspieler deckt die obersten beiden Karten von seinem Nachziehstapel auf. Haben die Mitspieler einer oder mehrere Geldkarten aufgedeckt, muss jeder eine davon (nach deiner Wahl) entsorgen. Du kannst eine beliebige Zahl der entsorgten Karten bei dir ablegen. Die übrigen aufgedeckten Karten legen die Spieler bei sich ab.
+      (Kosten: 4)
+  - !Item
+    name: miliz
+    active: False
+    belongs_to: None
+    description: |
+      Miliz (Aktion/Angriff): 
+      + 2 Geld
+      Jeder Mitspieler legt Karten ab, bis er nur noch 3 Karten auf der Hand hat.
+      (Kosten: 4)
+  - !Item
+    name: dorf
+    active: False
+    belongs_to: None
+    description: |
+      Dorf (Aktion): 
+      + 1 Karte
+      + 2 Aktionen
+      (Kosten: 3)
+  - !Item
+    name: grenzdorf
+    active: False
+    belongs_to: None
+    description: |
+      Grenzdorf (Aktion): 
+      + 1 Karte
+      + 2 Aktionen
+      Wenn du das Grenzdorf nimmst, nimm dir eine Karte, die weniger Kostet als das Grenzdorf.
+      (Kosten: 6)
+  - !Item
+    name: maskerade
+    active: False
+    belongs_to: None
+    description: |
+      Maskerade (Aktion): 
+      + 2 Karten
+      Alle Spieler (auch du selbst) müssen gleichzeitig eine Karte aus ihrer Hand an ihren linken Nachbarn weiter geben. Danach darfst du eine Karte aus deiner Hand entsorgen.
+      (Kosten: 3)
+  - !Item
+    name: anwesen
+    active: False
+    belongs_to: None
+    description: |
+      Anwesen (Punktekarte): 
+      + 1 Siegpunkt
+      (Kosten: 2)
 
 actions:
   ### PLACE 1 ############################
@@ -1179,3 +1335,143 @@ actions:
         check: isInInventory
     text: |
       Ich will grad nicht rauchen..
+
+
+### CHAPTER 2 ###
+
+# Bridge
+  - !Action
+    operation: nehme
+    target: ypsheft
+    text: |
+      Ich versuche das Ypsheft zu nehmen..
+      Es hängt irgendwo unter dem Sitz fest... 
+      Mit etwas mehr Kraft gelingt es zwei Seiten aus dem Heft herauszureißen. Zudem ist ein kleines Lesezeichen herausgefallen.
+    changes:
+      - obj: ypsheft
+        change: destroy
+      - obj: rezept
+        change: activate
+      - obj: rezept
+        change: toInventory
+      - obj: lesezeichen
+        change: activate
+      - obj: lesezeichen
+        change: toInventory
+  - !Action
+    operation: nehme
+    target: lesezeichen
+    text: |
+      Kommt mir irgendwie vertraut vor.
+  - !Action
+    operation: benutze
+    target: stacheln
+    target2: sandra
+    conditions:
+      - obj: stacheln
+        check: isInInventory
+      - place: fahrt.kielpb
+      - obj: puderdose
+        check: isNotActive
+    text: |
+      Während ich beflügelt von angelerntem aus einem Biologie Bachelor und vielen N24 Dokus eine perfekte Imitation einer Wespe abliefere, piekse ich die Muse des Autos mit einem der Kakteenstacheln..
+      Sie erschreckt sich und wirft ihre nicht-euphemistische Puderdose nach hinten. Dieses landet direkt neben mir.
+      Dabei schreit sie ihren Rainer an: "Ich sag ja noch lass ihn nicht reinlassen bevor hier das ganze Ungeziefer ins Auto kommt. Jetzt ist mein Lippenstift total schräg."
+      Sie öffnet das Fenster um jegliches Mistvieh loszuwerden.
+    changes:
+      - obj: puderdose
+        change: activate
+
+  - !Action
+    operation: benutze
+    target: stacheln
+    target2: sitz
+    conditions:
+      - obj: stacheln
+        check: isInInventory
+      - place: fahrt.kielpb
+      - obj: wattestäbchen
+        check: isNotActive
+    text: |
+      Ich stocher mit einem Stachel etwas im Sitz rum und bastel mir so ein Wattestäbchen.
+    changes:
+      - obj: wattestäbchen
+        change: activate
+      - obj: wattestäbchen
+        change: toInventory
+  - !Action
+    operation: benutze
+    target: wattestäbchen
+    target2: puderdose
+    conditions:
+      - obj: wattestäbchen
+        check: isInInventory
+      - place: fahrt.kielpb
+      - obj: puderdose
+        check: isActive
+    text: |
+      Ich befülle das Wattestäbchen mit einer Mischung aus Sandras Hautschuppen und Puder.
+    changes:
+      - obj: wattestäbchen
+        change: destroy
+      - obj: probe
+        change: activate
+      - obj: probe
+        change: toInventory
+  - !Action
+    operation: benutze
+    target: holsten
+    target2: feuerzeug
+    conditions:
+      - obj: holsten
+        check: isInInventory
+    text: |
+      Plopp!
+    changes:
+      - obj: kronkorken
+        change: activate
+      - obj: kronkorken
+        change: toInventory
+  - !Action
+    operation: benutze
+    target: holsten
+    target2: probe
+    conditions:
+      - obj: kronkorken
+        check: isInInventory
+    text: |
+      Ich werfe das gesamte Wattestäbchen ins Bier. Es schäumt kurz und verstummt dann wieder. Das Rezept benötige ich denke ich nicht mehr.
+    changes:
+      - obj: holsten
+        change: destroy
+      - obj: probe
+        change: destroy
+      - obj: zaubertrank
+        change: activate
+      - obj: zaubertrank
+        change: toInventory
+      - obj: rezept
+        change: destroy
+  - !Action
+    operation: benutze
+    target: lesezeichen
+    target2: zaubertrank
+    conditions:
+      - obj: lesezeichen
+        check: isInInventory
+      - obj: zaubertrank
+        check: isInInventory
+    text: |
+      Ich wasche das Lesezeichen mit dem gesamten verzauberten Bier. Jetzt ist nichts mehr für Sandra übrig! Was für eine Verschwendung, oder?
+    changes:
+      - obj: zaubertrank
+        change: destroy
+      - obj: lesezeichen
+        change: destroy
+      - obj: laboratorium
+        change: activate
+      - obj: laboratorium
+        change: toInventory
+
+
+

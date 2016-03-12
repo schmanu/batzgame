@@ -416,7 +416,9 @@ objects:
     belongs_to: fahrt.kielpb
     description: |
       Punk Piraten: Zaubertrank
-      TODO WRITE TEXT
+      Um eine Person zu verzaubern oder um dafür zu sorgen, dass Gegenstände sich mental mit einer Person verbinden muss man folgendes mischen:
+      Zunächst brauchst du etwas persönliches der Person oder noch besser ein Teil einer Person.
+      Danach muss man nur noch Alkohol zuführen und voila!
   - !Item
     name: lesezeichen
     active: False

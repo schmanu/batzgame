@@ -4,6 +4,7 @@ from item import Item
 from place import Place
 from action import Action
 
+
 class Controller(cmd.Cmd):
   """
       This class manages all shell inputs and directs them to the game object.

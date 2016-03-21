@@ -10,7 +10,12 @@ introduction: |
 #startplace: laboe.naziroom
 #startinventory: [kippen]
 startplace: fahrt.kielpb
-startinventory: [stacheln, kutte, holsten, feuerzeug, kippen, tageszeitung, muschel, teeei]
+startinventory: [stacheln, kutte, holsten, feuerzeug, kippen, tageszeitung, muschel, teeei, laboratorium]
+startdrawpile: [laboratorium, räuber, miliz, dorf, grenzdorf, maskerade, dorf, anwesen, dieb]
+startsandrapile: [fluch]
+startsandrahand: [fuffi, fuffi, fuffi, fuffi, fuffi]
+startmoney: 0
+startactions: 1
 places: 
   - !Place
     name: laboe.naziroom
@@ -461,8 +466,8 @@ objects:
       Damit kann ich kann ich hoffentlich richtig bei Sandra punkten. Oder sie wenigstens verzaubern.
   - !Item
     name: laboratorium
-    active: False
-    belongs_to: None
+    active: True
+    belongs_to: inventory
     description: |
       Laboratorium (Aktion):
       + 2 Karten
@@ -530,6 +535,20 @@ objects:
       Anwesen (Punktekarte): 
       + 1 Siegpunkt
       (Kosten: 2)
+  - !Item
+    name: fluch
+    active: False
+    belongs_to: None
+    description: |
+      Fluch (Punktekarte):
+      - 1 Siegpunkt
+      (Kosten: 0)
+  - !Item
+    name: fuffi
+    active: False
+    belongs_to: None
+    description: |
+      50 faltenfreie Euronen.
 
 actions:
   ### PLACE 1 ############################
@@ -1327,18 +1346,6 @@ actions:
       - place: fahrt.kielpb
 
 
-
-  - !Action
-    operation: benutze
-    target: kippen
-    target2: feuerzeug
-    conditions:
-      - obj: feuerzeug
-        check: isInInventory
-    text: |
-      Ich will grad nicht rauchen..
-
-
 ### CHAPTER 2 ###
 
 # Bridge
@@ -1474,6 +1481,110 @@ actions:
         change: activate
       - obj: laboratorium
         change: toInventory
+  ######################## Dominion Logic Start #########
+  - !Action
+    operation: benutze
+    target: laboratorium
+    conditions: 
+      - obj: laboratorium
+        check: isInInventory
+    text: |
+      Ich spiele das Laboratorium.
+    changes:
+      - obj: laboratorium
+        change: destroy
+      - drawCard: 2
+      - actionDiff: 1
 
+  - !Action
+    operation: benutze
+    target: dorf
+    conditions:
+      - obj: dorf
+        check: isInInventory
+    text: |
+      Ich spiele das Dorf.
+    changes:
+      - obj: dorf
+        change: destroy
+      - drawCard: 1
+      - actionDiff: 2
+  - !Action
+    operation: benutze
+    target: grenzdorf
+    conditions:
+      - obj: grenzdorf
+        check: isInInventory
+    text: |
+      Ich spiele das Grenzdorf.
+    changes:
+      - obj: grenzdorf
+        change: destroy
+      - drawCard: 1
+      - actionDiff: 2
+  - !Action
+    operation: benutze
+    target: maskerade
+    conitions:
+      - obj: maskerade
+        check: isInInventory
+    text: |
+      Ich spiele die Maskerade.
+    changes:
+      - obj: maskerade
+        change: destroy
+      - drawCard: 2
+      - actionDiff: 0
+      - specialAction: maskerade
+  - !Action
+    operation: benutze
+    target: miliz
+    conditions:
+      - obj: miliz
+        check: isInInventory
+    text: |
+      Ich spiele die Miliz.
+    changes:
+      - obj: miliz
+        change: destroy
+      - actionDiff: 0
+      - specialAction: miliz
+  - !Action
+    operation: benutze
+    target: dieb
+    conditions:
+      - obj: dieb
+        check: isInInventory
+    text: |
+      Ich spiele den Dieb.
+    changes:
+      - obj: dieb
+        change: destroy
+      - actionDiff: 0
+      - specialAction: dieb
+  - !Action
+    operation: benutze
+    target: räuber
+    conditions:
+      - obj: räuber
+        check: isInInventory
+    text: |
+      Ich spiele den Räuber.
+    changes:
+      - obj: räuber
+        change: destroy
+      - actionDiff: 0
+      - specialAction: raeuber
+
+  ############## Default Actions ################
+  - !Action
+    operation: benutze
+    target: kippen
+    target2: feuerzeug
+    conditions:
+      - obj: feuerzeug
+        check: isInInventory
+    text: |
+      Ich will grad nicht rauchen..
 
 

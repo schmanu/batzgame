@@ -256,6 +256,9 @@ class Game(object):
   def checkDominion(self):
     if State.actionsleft == 0 and State.money < 150:
       self.resetDominion("Ich habe keine Aktionen mehr und nicht genug Geld geklaut.. Gut, dass ich mir die gesamte Combo nur im Kopf vorgestellt habe.")
+    if State.actionsleft == 0 and State.money == 150:
+      self.changePlace(self.places["fahrt.kielpb.ende"])
+      self.changePlace(self.places["paderborn.waldrand"])
 
 
   @staticmethod
@@ -284,6 +287,7 @@ class Game(object):
       if sandracard.name == 'fuffi':
         State.money += 50
         Game.animatedprint("Ich gebe Sandra ein Anwesen und bekomme von ihr einen Fuffi. Ich habe jetzt " + str(State.money) + " Euro geklaut. \n")
+        mycard.destroy()
 
   def miliz(self):
     for _ in range(2):

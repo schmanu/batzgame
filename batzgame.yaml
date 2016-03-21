@@ -11,7 +11,7 @@ introduction: |
 #startinventory: [kippen]
 startplace: fahrt.kielpb
 startinventory: [stacheln, kutte, holsten, feuerzeug, kippen, tageszeitung, muschel, teeei, laboratorium]
-startdrawpile: [laboratorium, räuber, miliz, dorf, grenzdorf, maskerade, dorf, anwesen, dieb]
+startdrawpile: [laboratorium, räuber, maskerade, dorf, grenzdorf, miliz, dorf, anwesen, dieb]
 startsandrapile: [fluch]
 startsandrahand: [fuffi, fuffi, fuffi, fuffi, fuffi]
 startmoney: 0
@@ -82,7 +82,16 @@ places:
     name: fahrt.kielpb
     description: |
       Ich sitze in einem aufgemotzten Renault Clio. Ein feines Teil mit allem drum und dran. Ein aufgepumpter Typ der sich Rainer nennt sitzt in einem schwarz-weißen Leder Sportsitz. Neben ihm sitzt seine Freundin Sandra, die sich gerade gelangweilt schminkt. Die Rückbank teile ich mir mit einem Reisekoffer und meinem Kater.
-
+  - !Place
+    name: fahrt.kielpb.ende
+    description: |
+      Wir kommen nach ca. 4 Stunden an einer Tankstelle in der nähe von Paderborn an. Endlich nicht mehr sitzen. Rainer betankt das Auto während Sandra sich RedBull kaufen geht
+      und die Tankrechnung bezahlt.. Während die beiden beschäftigt sind schleichst du dich in einen nahegelegenen Wald davon.
+      Du hörst noch entsetze schreie von Sandra "Raaineer. Mein Geld ist verschwunden! Kannst du mal im Fußraum schauen??! Das muss da irgendwo sein!"
+  - !Place
+    name: paderborn.waldrand
+    description: |
+      Ich befinde mich an einem Waldrand in der Nähe von Paderborn.
 objects:
   #laboe
   - !Item
@@ -1408,6 +1417,8 @@ actions:
         change: activate
       - obj: wattestäbchen
         change: toInventory
+      - obj: stacheln
+        change: destroy
   - !Action
     operation: benutze
     target: wattestäbchen

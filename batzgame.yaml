@@ -9,8 +9,8 @@ introduction: |
 
 #startplace: laboe.naziroom
 #startinventory: [kippen]
-startplace: fahrt.kielpb
-startinventory: [stacheln, kutte, holsten, feuerzeug, kippen, tageszeitung, muschel, teeei, laboratorium]
+startplace: laboe.naziroom
+startinventory: [kippen]
 startdrawpile: [laboratorium, räuber, maskerade, dorf, grenzdorf, miliz, dorf, anwesen, dieb]
 startsandrapile: [fluch]
 startsandrahand: [fuffi, fuffi, fuffi, fuffi, fuffi]
@@ -85,13 +85,30 @@ places:
   - !Place
     name: fahrt.kielpb.ende
     description: |
-      Wir kommen nach ca. 4 Stunden an einer Tankstelle in der nähe von Paderborn an. Endlich nicht mehr sitzen. Rainer betankt das Auto während Sandra sich RedBull kaufen geht
-      und die Tankrechnung bezahlt.. Während die beiden beschäftigt sind schleichst du dich in einen nahegelegenen Wald davon.
-      Du hörst noch entsetze schreie von Sandra "Raaineer. Mein Geld ist verschwunden! Kannst du mal im Fußraum schauen??! Das muss da irgendwo sein!"
+      Wir kommen nach ca. 4 Stunden Fahrt an einem Autohof an und halten an der Tankstelle. Endlich nicht mehr sitzen. Rainer holt sich was zu essen und betankt das Auto. Sandra geht sich RedBull kaufen
+      und die Tankrechnung bezahlen.. 
+      Während die beiden beschäftigt sind schleiche ich mich davon und verstecke mich um die Ecke..
+      Ich höre noch entsetze schreie von Sandra "Raaineer. Mein Geld ist verschwunden! Kannst du mal im Fußraum schauen??! Das muss da irgendwo sein!" 
+      Kurze Zeit später entfacht ein intensiver Streit zwischen dem Tankwart Sebastian Labenski Rainer: 
+      "Das alles hier ist 'Grottig! Teuer! Unfreundlich!'"
+      - "Ihr tankt hier in der Tanke NO.1, könnt dann nicht bezahlen und beschwert euch dann auch noch!"
+      - "War das erste mal auf dem Autohof und das letzte mal. Das man 8€ Parkgebühren. Zahlen muss da hat man sich ja schon dran gewöhnt aber das die übriggebliebenen 6 Euro auch noch geteilt werden einmal 3 € Tanke und 3€ Miss Peppers ist schon abzocke. Dann habe ich ein Holsteiner Schnitzel bestellt und es war sehr schlecht nicht frisch und dann noch altes fett bin sehr enttäuscht ."
+      Dann mischt sich Charlie Bricklebank, ein Restaurantbesitzer ein: 
+      "One of the best truck stops in Germany. Love miss peppers could eat a giant cheesey cheeseburger right now!!"
+      Rainer reagiert wutentbrannt:
+      "8 € Parkgebühren. Nur 6€ zum Verzehr. Davon 3€ im Restaurant und 3€ in der Tanke. Duschen kost auch 3€. Viel zu teuer. Essen war gut. Das war's. In der Dusche war Schimmel. Und wenn ich 20€ verzehre müsst man danach ja wenigstens umsonst auf Toilette gehen. Ach ja. Mit dem Kaffeebon bekommt man kein Cappuccino!!! Das ist übelste Abzocke. Mich sehe die nie wieder!!!"
+      Kurze Zeit darauf prellt er die Rechnung und fährt einfach davon.
+      Jetzt wo sich die Situation eskalativ beruhigt hat, komme ich aus dem Versteck hervor.
   - !Place
-    name: paderborn.waldrand
+    name: paderborn.autohof
     description: |
-      Ich befinde mich an einem Waldrand in der Nähe von Paderborn.
+      Ich befinde mich jetzt mitten auf einem Autohof und blicke direkt auf die Tanke. Links von mir befindet sich ein Restaurant Namens RoadHouse und rechts von mir befindet sich MissPeppers.
+  - !Place
+    name: paderborn.roadhouse
+    description: |
+      "Super tolles Ambiente. Der Amerikaner am Rasthof, liebevoll im Dinerstil eingerichtet. Das Personal ist immer freundlich und kann auch mit Kritik umgehen. Selbst wenn die Bude bis auf den letzten Platz voll ist, kommt das Essen meist innerhalb einer halben Stunde, ist super lecker, die Portionen sind mehr als ausreichend groß und die Preise passen. Perfekt für die kleine Burgersünde in passender Umgebung."
+      ... Wo kam denn das her? 
+      Es liegt ein Gemisch aus Pommes und Klosteingeruch in der Luft und es ist kaum was los. An der Wand hängen Corvetteattrapen aus Plastik. Auf jedem Tisch steht ein Glas mit Besteck und Servierten. Ich kann aber weit und breit keine Bedienung sehen.
 objects:
   #laboe
   - !Item
@@ -366,8 +383,8 @@ objects:
       Eine gut gepflegte Kutte der Kieler Kneipenterroristen.
   - !Item
     name: holsten
-    active: True
-    belongs_to: inventory
+    active: False
+    belongs_to: None
     description: |
       Holsten knallt am dollsten!
   - !Item
@@ -384,8 +401,8 @@ objects:
       Mit Silber-Edding geschrieben steht: "Wer das liest ist Lobatz." Es fehlen alle Bretter der Rückenlehne.
   - !Item
     name: stacheln
-    active: True
-    belongs_to: inventory
+    active: False
+    belongs_to: None
     description: |
       Achtung stachlig. Etwas blut von mir klebt noch dran.
 
